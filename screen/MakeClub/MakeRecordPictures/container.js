@@ -51,30 +51,21 @@ export default class RecordRegister extends React.Component {
 
   _addImage = async image => {
     const t = this;
-    let tmp_high = await ImageResizer.createResizedImage(
+    let tmp = await ImageResizer.createResizedImage(
       image,
       600,
       600,
       'JPEG',
       100,
     );
-    let high_image = tmp_high.uri;
-    let tmp_low = await ImageResizer.createResizedImage(
-      image,
-      300,
-      300,
-      'JPEG',
-      100,
-    );
-    let low_image = tmp_low.uri;
+    image = tmp.uri;
     this.setState(prevState => {
       const ID = t.state.idCount.toString();
       const {count, idCount} = this.state;
       const newToDoObject = {
         [ID]: {
           id: ID,
-          low_image,
-          image: high_image,
+          image,
           comment: '',
           createdAt: Date.now(),
           updateLoading: false,
@@ -95,30 +86,21 @@ export default class RecordRegister extends React.Component {
 
   _addImageM = async (image, comment, createdAt) => {
     const t = this;
-    let tmp_high = await ImageResizer.createResizedImage(
+    let tmp = await ImageResizer.createResizedImage(
       image,
       600,
       600,
       'JPEG',
       100,
     );
-    let high_image = tmp_high.uri;
-    let tmp_low = await ImageResizer.createResizedImage(
-      image,
-      300,
-      300,
-      'JPEG',
-      100,
-    );
-    let low_image = tmp_low.uri;
+    image = tmp.uri;
     this.setState(prevState => {
       const ID = t.state.idCount.toString();
       const {count, idCount} = this.state;
       const newToDoObject = {
         [ID]: {
           id: ID,
-          low_image,
-          image: high_image,
+          image,
           comment: comment,
           createdAt: createdAt,
           updateLoading: false,
@@ -151,28 +133,20 @@ export default class RecordRegister extends React.Component {
   };
 
   _updateImage = async (id, image) => {
-    let tmp_high = await ImageResizer.createResizedImage(
+    let tmp = await ImageResizer.createResizedImage(
       image,
       600,
       600,
       'JPEG',
       100,
     );
-    let high_image = tmp_high.uri;
-    let tmp_low = await ImageResizer.createResizedImage(
-      image,
-      300,
-      300,
-      'JPEG',
-      100,
-    );
-    let low_image = tmp_low.uri;
+    image = tmp.uri;
     this.setState(prevState => {
       const newState = {
         ...prevState,
         images: {
           ...prevState.images,
-          [id]: {...prevState.images[id], image: high_image, low_image},
+          [id]: {...prevState.images[id], image},
         },
       };
       return {...newState};
@@ -213,7 +187,7 @@ export default class RecordRegister extends React.Component {
     const t = this;
     for (var item of response.data) {
       await t._addImageM(
-        item.recordPicture_high,
+        item.recordPicture,
         item.recordContent,
         item.createdAt,
       );
@@ -248,8 +222,7 @@ export default class RecordRegister extends React.Component {
       await axios.post(
         'http://13.209.221.206/php/MakeClub/DeletePrevRecords.php',
         {
-          recordPicture_high: item.recordPicture_high,
-          recordPicture_low: item.recordPicture_low,
+          recordPicture: item.recordPicture,
         },
       );
     }
@@ -261,35 +234,18 @@ export default class RecordRegister extends React.Component {
     const t = this;
     await Promise.all(
       Object.values(images).map(image =>
-        t._inputDatas(
-          image.low_image,
-          image.image,
-          image.comment,
-          image.createdAt,
-          imageRoom,
-        ),
+        t._inputDatas(image.image, image.comment, image.createdAt, imageRoom),
       ),
     );
   };
 
-  _inputDatas = async (
-    low_image,
-    high_image,
-    comment,
-    createdAt,
-    imageRoom,
-  ) => {
+  _inputDatas = async (image, comment, createdAt, imageRoom) => {
     const {navigation} = this.props;
     var userNo = navigation.getParam('userNo', 'NO-ID');
 
     let formData = new FormData();
-    formData.append('low_image', {
-      uri: low_image,
-      name: 'image.jpeg',
-      type: 'image/jpeg',
-    });
-    formData.append('high_image', {
-      uri: high_image,
+    formData.append('image', {
+      uri: image,
       name: 'image.jpeg',
       type: 'image/jpeg',
     });

@@ -32,7 +32,7 @@ const ClubRecordPictures = props => (
           {Object.values(props.getDatas).map(image => (
             <Picture
               key={image.createdAt}
-              picture={image.recordPicture_high}
+              picture={image.recordPicture}
               text={image.recordContent}
             />
           ))}

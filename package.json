@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build:ios": "react-native bundle --entry-file='index.ios.js' --bundle-output='./ios/YourAppName/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -65,7 +66,6 @@
     "react-navigation-magic-move": "^0.4.1",
     "react-navigation-transitions": "^1.0.12",
     "react-svg-radar-chart": "^1.2.0",
-    "rnal": "^0.2.1",
     "tcomb-form-native": "^0.6.20",
     "uuid": "^3.3.3",
     "yo": "^3.1.0"

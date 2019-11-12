@@ -107,12 +107,12 @@ class Container extends Component {
       clubIntroduce,
     });
 
-    var clubLogo = response.data.message.clubLogo_high;
+    var clubLogo = response.data.message.clubLogo;
     this.setState({
       clubLogo,
     });
 
-    var clubMainPicture = response.data.message.clubMainPicture_high;
+    var clubMainPicture = response.data.message.clubMainPicture;
     this.setState({
       clubMainPicture,
     });
@@ -287,7 +287,7 @@ class Container extends Component {
         var recordArray = new Array();
         await Promise.all(
           response.map(async row => {
-            await recordArray.push({uri: row.recordPicture_low});
+            await recordArray.push({uri: row.recordPicture});
           }),
         );
         await t.setState({records: [...this.state.records, ...recordArray]});
@@ -299,7 +299,7 @@ class Container extends Component {
     const t = this;
     await axios
       .post('http://13.209.221.206/php/Main/GetRecordPicture.php', {
-        recordPicture_low: item,
+        recordPicture: item,
       })
       .then(function(response) {
         const recordNo = response.data.message.recordNo;

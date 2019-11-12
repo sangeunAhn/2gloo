@@ -61,8 +61,8 @@ class Container extends Component {
         response.forEach(row => {
           clubNoArray.push(row.clubNo);
           clubNameArray.push(row.clubName);
-          clubLogoArray.push(row.clubLogo_low);
-          clubMainPictureArray.push(row.clubMainPicture_low);
+          clubLogoArray.push(row.clubLogo);
+          clubMainPictureArray.push(row.clubMainPicture);
         });
 
         this.setState({

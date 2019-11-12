@@ -59,15 +59,15 @@ const MakeClub2 = props => (
         <View style={styles.MainPictureImage}>
           <ActivityIndicator size="large" />
         </View>
-      ) : props.clubMainPicture_high == null ||
-        props.clubMainPicture_high === 'ul' ||
-        props.clubMainPicture_high === '' ? (
+      ) : props.clubMainPicture == null ||
+        props.clubMainPicture === 'ul' ||
+        props.clubMainPicture === '' ? (
         <View style={styles.MainPictureImage} />
       ) : (
-        props.clubMainPicture_high && (
+        props.clubMainPicture && (
           <Image
             style={styles.MainPictureImage}
-            source={{uri: props.clubMainPicture_high}}
+            source={{uri: props.clubMainPicture}}
           />
         )
       )}
@@ -84,16 +84,13 @@ const MakeClub2 = props => (
           <View style={styles.logoImage}>
             <ActivityIndicator size="large" />
           </View>
-        ) : props.clubLogo_high == null ||
-          props.clubLogo_high === 'ul' ||
-          props.clubLogo_high === '' ? (
+        ) : props.clubLogo == null ||
+          props.clubLogo === 'ul' ||
+          props.clubLogo === '' ? (
           <View style={styles.logoImage} />
         ) : (
-          props.clubLogo_high && (
-            <Image
-              style={styles.logoImage}
-              source={{uri: props.clubLogo_high}}
-            />
+          props.clubLogo && (
+            <Image style={styles.logoImage} source={{uri: props.clubLogo}} />
           )
         )}
       </TouchableOpacity>
