@@ -41,7 +41,7 @@ const ClubIntroduce = props => (
       isVisible={props.isImageViewVisible}
     /> */}
     {props.isGetting1 && props.isGetting2 ? (
-      <Swiper paginationStyle={{bottom: 10}} loop={false}>
+     <Swiper paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}} loop={false}>
         <View style={styles.container}>
           <BackButton navigation={props.navigation} />
           {props.clubMainPicture == null ||
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 1.5,
     width: '85%',
-    paddingVertical: 15,
+    paddingBottom:20,
     paddingHorizontal: 10,
   },
   introduceText: {paddingVertical: 15, paddingHorizontal: 10},

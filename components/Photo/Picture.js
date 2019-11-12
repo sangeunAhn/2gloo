@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { Transition } from 'react-navigation-fluid-transitions';
 
 const {height, width} = Dimensions.get('window');
 
@@ -31,8 +32,10 @@ export default class Pictures extends React.Component {
   render() {
     return (
       <>
+      
         <View style={styles.container}>
           <View style={[styles.imageView, {height: this.state.height}]}>
+          <Transition shared={this.props.picture}>
             <FastImage
               style={{
                 width: width - 22,
@@ -41,6 +44,7 @@ export default class Pictures extends React.Component {
               source={{uri: this.props.picture}}
               onLoad={this._onLoad}
             />
+            </Transition>
           </View>
           {!this.state.onLoad && (
             <View style={[styles.imageView]}>
@@ -51,7 +55,9 @@ export default class Pictures extends React.Component {
             <Text style={styles.text}>{this.props.text}</Text>
           </View>
         </View>
+        
       </>
+      
     );
   }
 
