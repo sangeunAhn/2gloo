@@ -51,21 +51,30 @@ export default class RecordRegister extends React.Component {
 
   _addImage = async image => {
     const t = this;
-    let tmp = await ImageResizer.createResizedImage(
+    let tmp_high = await ImageResizer.createResizedImage(
       image,
-      1500,
-      1500,
+      600,
+      600,
       'JPEG',
-      70,
+      100,
     );
-    image = tmp.uri;
+    let high_image = tmp_high.uri;
+    let tmp_low = await ImageResizer.createResizedImage(
+      image,
+      300,
+      300,
+      'JPEG',
+      100,
+    );
+    let low_image = tmp_low.uri;
     this.setState(prevState => {
       const ID = t.state.idCount.toString();
       const {count, idCount} = this.state;
       const newToDoObject = {
         [ID]: {
           id: ID,
-          image: image,
+          low_image,
+          image: high_image,
           comment: '',
           createdAt: Date.now(),
           updateLoading: false,
@@ -84,15 +93,32 @@ export default class RecordRegister extends React.Component {
     // console.log(this.state.images);
   };
 
-  _addImageM = (image, comment, createdAt) => {
+  _addImageM = async (image, comment, createdAt) => {
     const t = this;
+    let tmp_high = await ImageResizer.createResizedImage(
+      image,
+      600,
+      600,
+      'JPEG',
+      100,
+    );
+    let high_image = tmp_high.uri;
+    let tmp_low = await ImageResizer.createResizedImage(
+      image,
+      300,
+      300,
+      'JPEG',
+      100,
+    );
+    let low_image = tmp_low.uri;
     this.setState(prevState => {
       const ID = t.state.idCount.toString();
       const {count, idCount} = this.state;
       const newToDoObject = {
         [ID]: {
           id: ID,
-          image: image,
+          low_image,
+          image: high_image,
           comment: comment,
           createdAt: createdAt,
           updateLoading: false,
@@ -125,20 +151,28 @@ export default class RecordRegister extends React.Component {
   };
 
   _updateImage = async (id, image) => {
-    let tmp = await ImageResizer.createResizedImage(
+    let tmp_high = await ImageResizer.createResizedImage(
       image,
-      1500,
-      1500,
+      600,
+      600,
       'JPEG',
-      70,
+      100,
     );
-    image = tmp.uri;
+    let high_image = tmp_high.uri;
+    let tmp_low = await ImageResizer.createResizedImage(
+      image,
+      300,
+      300,
+      'JPEG',
+      100,
+    );
+    let low_image = tmp_low.uri;
     this.setState(prevState => {
       const newState = {
         ...prevState,
         images: {
           ...prevState.images,
-          [id]: {...prevState.images[id], image: image},
+          [id]: {...prevState.images[id], image: high_image, low_image},
         },
       };
       return {...newState};
@@ -227,23 +261,35 @@ export default class RecordRegister extends React.Component {
     const t = this;
     await Promise.all(
       Object.values(images).map(image =>
-        t._inputDatas(image.image, image.comment, image.createdAt, imageRoom),
+        t._inputDatas(
+          image.low_image,
+          image.image,
+          image.comment,
+          image.createdAt,
+          imageRoom,
+        ),
       ),
     );
   };
 
-  _inputDatas = async (image, comment, createdAt, imageRoom) => {
+  _inputDatas = async (
+    low_image,
+    high_image,
+    comment,
+    createdAt,
+    imageRoom,
+  ) => {
     const {navigation} = this.props;
     var userNo = navigation.getParam('userNo', 'NO-ID');
 
     let formData = new FormData();
     formData.append('low_image', {
-      uri: image,
+      uri: low_image,
       name: 'image.jpeg',
       type: 'image/jpeg',
     });
     formData.append('high_image', {
-      uri: image,
+      uri: high_image,
       name: 'image.jpeg',
       type: 'image/jpeg',
     });

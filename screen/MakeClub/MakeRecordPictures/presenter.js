@@ -17,6 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HeaderScrollView from 'react-native-header-scroll-view';
 import PhotoLoading from '../../../components/Photo/PhotoLoding';
 import {getStatusBarHeight, ifIphoneX} from 'react-native-iphone-x-helper';
+import BackButton from '../../../components/Button/BackButton';
 
 const {width, height} = Dimensions.get('window');
 
@@ -27,22 +28,7 @@ const MakeRecordPictures = props => (
       <ActivityIndicator size="large" />
     ) : (
       <>
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            width: width * 0.2,
-            height: height * 0.1,
-            top: Platform.OS === 'ios' ? 30 : 15,
-            left: 10,
-            zIndex: 1,
-          }}
-          onPress={() => {
-            props.navigation.goBack();
-          }}>
-          <SafeAreaView>
-            <Ionicons name="ios-arrow-back" size={width * 0.08} color="black" />
-          </SafeAreaView>
-        </TouchableOpacity>
+        <BackButton navigation={props.navigation} />
 
         {props.count === 0 ? (
           <>

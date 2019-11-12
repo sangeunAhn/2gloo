@@ -62,7 +62,7 @@ export default class ClubChars extends React.Component {
         skipBackup: true,
         path: 'images',
       },
-      quality: 0.5,
+      quality: 0.7,
     };
 
     const response = await Permissions.request('photo');

@@ -184,7 +184,7 @@ class Container extends Component {
         skipBackup: true,
         path: 'images',
       },
-      quality: 0.3,
+      quality: 0.7,
     };
 
     const response = await Permissions.request('photo');

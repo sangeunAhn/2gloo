@@ -138,7 +138,7 @@ export default class PhotoModify extends React.Component {
         skipBackup: true,
         path: 'images',
       },
-      quality: 0.5,
+      quality: 0.7,
     };
 
     Permissions.request('photo').then(response => {

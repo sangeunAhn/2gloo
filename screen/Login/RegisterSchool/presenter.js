@@ -9,7 +9,7 @@ const RegisterSchool = props => (
     <View style={styles.container}>
       <Text style={styles.title}>학교 등록</Text>
       <Text style={styles.explanation}>※ 본인의 학교를 선택해주세요.</Text>
-      <View style={{flexDirection: 'column', height: height * 0.83}}>
+      <View style={styles.view}>
         <View style={styles.schools}>
           <SchoolBtn
             school={'울산대학교'}
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
+  view: {flexDirection: 'column', height: height * 0.83},
   title: {
     marginTop: Platform.OS === 'ios' ? height * 0.1 : height * 0.07,
     marginLeft: width * 0.05,

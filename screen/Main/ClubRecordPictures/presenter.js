@@ -11,8 +11,8 @@ import {
 } from 'react-native';
 import Picture from '../../../components/Photo/Picture';
 import HeaderScrollView from 'react-native-header-scroll-view';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {getStatusBarHeight, ifIphoneX} from 'react-native-iphone-x-helper';
+import BackButton from '../../../components/Button/BackButton';
 
 const {width, height} = Dimensions.get('window');
 
@@ -20,41 +20,12 @@ const ClubRecordPictures = props => (
   <>
     {props.isGetting ? (
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.backBtn}
-          onPress={() => {
-            props.navigation.goBack();
-          }}>
-          <SafeAreaView>
-            <Ionicons name="ios-arrow-back" size={width * 0.08} color="black" />
-          </SafeAreaView>
-        </TouchableOpacity>
+        <BackButton navigation={props.navigation} />
         <HeaderScrollView
-          headerContainerStyle={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            ...ifIphoneX({paddingTop: 18}, {paddingTop: 0}),
-            height: Platform.OS === 'ios' ? height * 0.1 : height * 0.08,
-          }}
-          headlineStyle={{
-            height: height * 0.1,
-            textAlign: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignSelf: 'center',
-            fontSize: width * 0.05,
-            paddingTop: Platform.OS === 'ios' ? height * 0.055 : height * 0.048,
-          }}
-          headerComponentContainerStyle={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: height * 0.08,
-          }}
-          titleStyle={{
-            // paddingTop: Platform.OS === 'ios' ? 15 : 0,
-            color: '#3B3B3B',
-            fontSize: width * 0.09,
-          }}
+          headerContainerStyle={styles.headerContainerStyle}
+          headlineStyle={styles.headlineStyle}
+          headerComponentContainerStyle={styles.headerComponentContainerStyle}
+          titleStyle={styles.titleStyle}
           fadeDirection="up"
           title="기록 사진"
           scrollViewProps={{showsVerticalScrollIndicator: false}}>
@@ -74,19 +45,36 @@ const ClubRecordPictures = props => (
 );
 
 const styles = StyleSheet.create({
-  backBtn: {
-    position: 'absolute',
-    width: width * 0.2,
-    height: height * 0.1,
-    top: Platform.OS === 'ios' ? 30 : 15,
-    left: 10,
-    zIndex: 1,
-  },
   container: {
     flex: 1,
     backgroundColor: '#FAFAFA',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  headerContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...ifIphoneX({paddingTop: 18}, {paddingTop: 0}),
+    height: Platform.OS === 'ios' ? height * 0.1 : height * 0.08,
+  },
+  headlineStyle: {
+    height: height * 0.1,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    fontSize: width * 0.05,
+    paddingTop: Platform.OS === 'ios' ? height * 0.055 : height * 0.048,
+  },
+  headerComponentContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: height * 0.08,
+  },
+  titleStyle: {
+    // paddingTop: Platform.OS === 'ios' ? 15 : 0,
+    color: '#3B3B3B',
+    fontSize: width * 0.09,
   },
   header: {
     width: '100%',
