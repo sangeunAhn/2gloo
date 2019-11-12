@@ -163,8 +163,8 @@ export default class Main extends Component {
             <Menu
               style={{
                 position: 'absolute',
-                right: -3,
-                top: Platform.OS === 'ios' ? 35 : 15,
+                right: 2,
+                top: Platform.OS === 'ios' ? 35 : 20,
                 zIndex: 1,
                 // backgroundColor: 'red',
               }}>
@@ -297,7 +297,7 @@ export default class Main extends Component {
             <Text
               style={{fontSize: width * 0.03, marginBottom: 10}}
               onPress={() =>
-                Linking.openURL('http://pf.kakao.com/_BDxjiT/chat')
+                Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
               }>
               1:1 문의하기
             </Text>
@@ -429,12 +429,12 @@ const styles = StyleSheet.create({
   menuTitle: {
     paddingTop: height * 0.015,
     fontWeight: 'bold',
-    color: '#ADCDE9',
+    color: '#A7bfe8',
     fontSize: height * 0.03,
   },
   line: {
     borderBottomWidth: height * 0.001,
-    borderColor: '#ADCDE9',
+    borderColor: '#A7bfe8',
     width: '85%',
     alignItems: 'flex-end',
   },

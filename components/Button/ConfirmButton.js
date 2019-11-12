@@ -27,7 +27,7 @@ export default class ConfirmButton extends Component {
       <View style={[styles.button, {backgroundColor: this.props.buttonColor}]}>
         <TouchableOpacity onPress={this.props.onPress}>
           <LinearGradient
-            colors={['#CBDFF1', '#8DB5D6']}
+            colors={['#CFE1FF', '#9AB2DC']}
             style={styles.button2}>
             {this.props.title == '로딩' ? (
               <ActivityIndicator color="white" />

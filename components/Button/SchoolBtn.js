@@ -67,10 +67,10 @@ export default class ConfirmButton extends Component {
 const styles = StyleSheet.create({
   container: {},
   button: {
-    width: width * 0.4,
-    height: height * 0.38,
+    width: 145,
+    height: 255,
     backgroundColor: 'white',
-    borderRadius: width * 0.38 * 0.2,
+    borderRadius: 20,
     shadowColor: '#E1E1E1', // IOS
     shadowOffset: {height: 3, width: 0}, // IOS
     shadowOpacity: 3, // IOS
@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
   },
   logo: {
     backgroundColor: 'white',
-    width: height * 0.08,
-    height: height * 0.08,
-    borderRadius: height * 0.04,
-    marginTop: height * 0.027,
-    marginLeft: height * 0.027,
+    width: 55,
+    height: 55,
+    borderRadius: 55*0.5,
+    marginTop: 18,
+    marginLeft: 18,
     marginBottom: 50,
     elevation: 2,
     shadowColor: 'rgba(0,0,.2, .2)',
@@ -92,34 +92,33 @@ const styles = StyleSheet.create({
     shadowRadius: 1.5,
   },
   logoImage: {
-    width: height * 0.08,
-    height: height * 0.08,
-    borderRadius: height * 0.04,
-
+    width: 55,
+    height: 55,
+    borderRadius: 55*0.5,
     overflow: 'hidden',
   },
   title: {
-    marginLeft: height * 0.027,
+    marginLeft: 18,
   },
   titleText: {
-    fontSize: width * 0.06,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#707070',
   },
   address: {
-    marginLeft: height * 0.027,
-    marginTop: height * 0.01,
+    marginLeft: 18,
+    marginTop: 7,
   },
   addressText: {
-    fontSize: height * 0.021,
+    fontSize: 14,
     color: '#BBBBBB',
-    lineHeight: height * 0.033,
+    lineHeight: 23,
   },
   symbolLine: {
-    marginTop: height * 0.03,
-    marginLeft: height * 0.027,
-    borderBottomWidth: height * 0.008,
+    marginTop: 20,
+    marginLeft: 18,
+    borderBottomWidth: 6,
     borderRadius: 10,
-    width: width * 0.09,
+    width: 33,
   },
 });

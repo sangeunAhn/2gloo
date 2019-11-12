@@ -30,7 +30,6 @@ class ClubPickerM extends Component {
           onValueChange={this.updateUser}>
           <Picker.Item label="학술/교양" value="학술/교양" />
           <Picker.Item label="예술/문화/공연" value="예술/문화/공연" />
-          <Picker.Item label="자격증" value="자격증" />
           <Picker.Item label="체육" value="체육" />
           <Picker.Item label="취업" value="취업" />
           <Picker.Item label="창업" value="창업" />

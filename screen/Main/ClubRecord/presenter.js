@@ -13,6 +13,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HeaderScrollView from 'react-native-header-scroll-view';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 import MasonryView from '../../../components/Photo/MasonryList';
+import { Transition } from 'react-navigation-fluid-transitions';
+
 
 const {width, height} = Dimensions.get('window');
 
@@ -83,7 +85,9 @@ const ClubRecord = props => (
                 </View>
               </>
             ) : (
+              <Transition appear='scale' disappear='bottom'>
               <MasonryView {...props} />
+              </Transition>
             )}
           </HeaderScrollView>
         </View>

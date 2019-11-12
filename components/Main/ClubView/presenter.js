@@ -6,6 +6,7 @@ import {
   Image,
   Platform,
   Dimensions,
+  TouchableWithoutFeedback
 } from 'react-native';
 import ClubChars from '../../Char/ClubChars';
 import {moderateScale} from '../../Scaling';
@@ -29,7 +30,7 @@ import {
 const {width, height} = Dimensions.get('window');
 
 const ClubView = props => (
-  <TouchableOpacity
+  <TouchableWithoutFeedback
     onPress={props.gotoClubIntroduce}
     style={{marginHorizontal: 8}}>
     <Card style={{borderRadius: 15}}>
@@ -78,7 +79,7 @@ const ClubView = props => (
         </Left>
       </CardItem>
     </Card>
-  </TouchableOpacity>
+  </TouchableWithoutFeedback>
 
   // <View style={styles.container}>
   //   <View style={styles.clubViewTop}>

@@ -154,7 +154,7 @@ const MakeClub2 = props => (
           style={{width: width * 0.6}}
           minimumTrackTintColor="#E5E5E5"
           maximumTrackTintColor="#E5E5E5"
-          thumbTintColor="#ADCDE9"
+          thumbTintColor="#A7bfe8"
           thumbStyle={{width: 15, height: 15, borderRadius: 3}}
           trackStyle={{height: 2}}
         />
@@ -168,7 +168,7 @@ const MakeClub2 = props => (
           style={{width: width * 0.6}}
           minimumTrackTintColor="#E5E5E5"
           maximumTrackTintColor="#E5E5E5"
-          thumbTintColor="#ADCDE9"
+          thumbTintColor="#A7bfe8"
           thumbStyle={{width: 15, height: 15, borderRadius: 3}}
           trackStyle={{height: 2}}
         />
@@ -182,7 +182,7 @@ const MakeClub2 = props => (
           style={{width: width * 0.6}}
           minimumTrackTintColor="#E5E5E5"
           maximumTrackTintColor="#E5E5E5"
-          thumbTintColor="#ADCDE9"
+          thumbTintColor="#A7bfe8"
           thumbStyle={{width: 15, height: 15, borderRadius: 3}}
           trackStyle={{height: 2}}
         />
@@ -196,7 +196,7 @@ const MakeClub2 = props => (
           style={{width: width * 0.6}}
           minimumTrackTintColor="#E5E5E5"
           maximumTrackTintColor="#E5E5E5"
-          thumbTintColor="#ADCDE9"
+          thumbTintColor="#A7bfe8"
           thumbStyle={{width: 15, height: 15, borderRadius: 3}}
           trackStyle={{height: 2}}
         />
@@ -449,7 +449,7 @@ const styles = StyleSheet.create({
     width: width * 0.07,
     height: width * 0.07,
     borderRadius: width * 0.07 * 0.5,
-    backgroundColor: '#7B99B6',
+    backgroundColor: '#A7bfe8',
   },
   countView2: {
     justifyContent: 'center',
