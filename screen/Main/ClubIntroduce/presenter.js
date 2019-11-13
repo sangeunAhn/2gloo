@@ -8,15 +8,23 @@ import {
   ActivityIndicator,
   SafeAreaView,
   ImageBackground,
+  StatusBar,
+  Image,
+  TouchableWithoutFeedback,
+  Linking
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import {Thumbnail, Text} from 'native-base';
+import { Thumbnail, Text } from 'native-base';
 import ClubChars from '../../../components/Char/ClubChars';
 import SliderView from '../../../components/Introduce/Slider';
 import BackButton from '../../../components/Button/BackButton';
+import BackButtonW from '../../../components/Button/BackButtonW';
+import BackButton2 from '../../../components/Button/BackButton2';
 import Record from '../../../components/Introduce/Record';
+import LinearGradient from 'react-native-linear-gradient';
 
-const {width, height} = Dimensions.get('window');
+
+const { width, height } = Dimensions.get('window');
 const ClubIntroduce = props => (
   <>
     {/* <ImageView
@@ -41,102 +49,103 @@ const ClubIntroduce = props => (
       isVisible={props.isImageViewVisible}
     /> */}
     {props.isGetting1 && props.isGetting2 ? (
-      <Swiper
-        paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}}
-        loop={false}>
-        <View style={styles.container}>
-          <BackButton navigation={props.navigation} />
-          {props.clubMainPicture == null ||
-          props.clubMainPicture === 'ul' ||
-          props.clubMainPicture === '' ? (
-            <View style={[styles.mainPicture, {backgroundColor: '#a7bfe8'}]} />
-          ) : (
-            props.clubMainPicture && (
-              <View
-                style={styles.mainPicture}
-                onPress={props.imageViewVisible1}>
-                <ImageBackground
-                  blurRadius={2}
-                  source={{uri: props.clubMainPicture}}
-                  style={styles.mainPicture}
-                />
-              </View>
-            )
-          )}
+      <>
 
-          <View style={{top: -100}}>
-            <View style={styles.box}>
-              <View style={styles.inBox}>
-                <Text style={styles.clubName}>{props.clubName}</Text>
-                <Text note style={styles.charText}>
-                  {' '}
-                  {props.clubChar.map((char, i) => {
-                    return <ClubChars fontSize={13} chars={char} key={i} />;
-                  })}
-                </Text>
-                <Text>
-                  {props.clubKakao}
-                </Text>
-              </View>
-              {props.clubLogo == null ||
-              props.clubLogo === 'ul' ||
-              props.clubLogo === '' ? (
-                <View style={styles.logo}>
-                  <View
-                    style={[styles.logoImage, {backgroundColor: '#6190e8'}]}
-                  />
-                </View>
+        <Swiper
+          paginationStyle={{ bottom: Platform.OS === 'ios' ? 15 : 10 }}
+          loop={false}>
+
+          <View style={styles.container}>
+            <StatusBar translucent={true} />
+            <BackButtonW navigation={props.navigation} />
+            {props.clubMainPicture == null ||
+              props.clubMainPicture === 'ul' ||
+              props.clubMainPicture === '' ? (
+                <View style={[styles.mainPicture, { backgroundColor: '#a7bfe8' }]} />
               ) : (
-                props.clubLogo && (
-                  <View onPress={props.imageViewVisible2} style={styles.logo}>
-                    <Thumbnail
-                      source={{uri: props.clubLogo}}
-                      style={styles.logoImage}
-                    />
+                props.clubMainPicture && (
+                  <View
+                    style={styles.mainPicture}
+                    onPress={props.imageViewVisible1}>
+                    <ImageBackground
+                      // blurRadius={2}
+                      source={{ uri: props.clubMainPicture }}
+                      style={styles.mainPicture}
+                    >
+                      <LinearGradient
+                        colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
+                        style={{ height: height * 0.3, justifyContent: 'flex-end', }}>
+                        {/* <View opacity={0.5} style={{height:height*0.3, justifyContent:'flex-end', backgroundColor:'red'}}> */}
+                        <View style={{ marginLeft: 15, marginBottom: 14 }}>
+                          <Text style={styles.clubName}>{props.clubName}</Text>
+                          <Text note style={styles.charText}>
+                            {' '}
+                            {props.clubChar.map((char, i) => {
+                              return <ClubChars color={'white'} fontSize={13} chars={char} key={i} />;
+                            })}
+                          </Text>
+                        </View>
+                        {/* </View> */}
+                      </LinearGradient>
+                    </ImageBackground>
+                    {props.clubLogo == null ||
+                      props.clubLogo === 'ul' ||
+                      props.clubLogo === '' ? (
+                        <View style={styles.logo}>
+                          <View
+                            style={[styles.logoImage, { backgroundColor: '#6190e8' }]}
+                          />
+                        </View>
+                      ) : (
+                        props.clubLogo && (
+                          <View onPress={props.imageViewVisible2} style={styles.logo}>
+                            <Thumbnail
+                              source={{ uri: props.clubLogo }}
+                              style={styles.logoImage}
+                            />
+                          </View>
+                        )
+                      )}
+                      <TouchableWithoutFeedback onPress={() => Linking.openURL(props.clubKakao)}>
+                      <Image style={{position:'absolute', width:45, height:45, right:4, bottom:28}}source={require('../../../images/kakaoLogo.png')}/>
+                      </TouchableWithoutFeedback>
                   </View>
                 )
               )}
-              <View
-                style={{
-                  right: 10,
-                  top: 10,
-                  width: 10,
-                  height: 10,
-                  backgroundColor: 'blue',
-                  position: 'absolute',
-                }}
-              />
+        
+
+            <View style={styles.slider}>
+              <SliderView {...props} textL={'소규모'} textR={'대규모'} />
+              <SliderView {...props} textL={'자율적인'} textR={'체계적인'} />
+              <SliderView {...props} textL={'재미있는'} textR={'진지한'} />
+              <SliderView {...props} textL={'친목도모'} textR={'활동중심'} />
             </View>
           </View>
-          <View style={styles.slider}>
-            <SliderView {...props} textL={'소규모'} textR={'대규모'} />
-            <SliderView {...props} textL={'자율적인'} textR={'체계적인'} />
-            <SliderView {...props} textL={'재미있는'} textR={'진지한'} />
-            <SliderView {...props} textL={'친목도모'} textR={'활동중심'} />
-          </View>
-        </View>
-        <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
-          <BackButton navigation={props.navigation} />
-          <View>
-            <SafeAreaView>
-              <Text style={styles.introduceTitle}>모임 소개</Text>
-            </SafeAreaView>
-          </View>
-          <View style={styles.intro}>
-            <ScrollView style={styles.introBox} nestedScrollEnabled={true}>
-              <Text style={styles.introduceText}>{props.clubIntroduce}</Text>
-            </ScrollView>
-          </View>
-          <Text style={styles.phoneTitle}> 연락처 </Text>
-          <ScrollView style={styles.phone}>
-            <Text>{props.clubPhoneNumber}</Text>
-          </ScrollView>
-        </View>
-        <Record {...props} />
-      </Swiper>
+
+
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
+
+            <BackButton2 navigation={props.navigation} />
+            <View style={styles.intro}>
+              <ScrollView style={styles.introBox} nestedScrollEnabled={true}>
+                <Text style={styles.introduceTitle}>Introduce</Text>
+                <Text style={styles.introduceText}>{props.clubIntroduce}</Text>
+              </ScrollView>
+            </View>
+            <View style={{ flex: 1 }}>
+              <ScrollView style={styles.phone}>
+                <Text style={styles.phoneTitle}>Phone number</Text>
+                <Text style={styles.phoneText}>{props.clubPhoneNumber}</Text>
+              </ScrollView>
+            </View>
+          </SafeAreaView>
+
+          <Record {...props} />
+        </Swiper>
+      </>
     ) : (
-      <ActivityIndicator size="large" style={styles.activityIndicator} />
-    )}
+        <ActivityIndicator size="large" style={styles.activityIndicator} />
+      )}
   </>
 );
 
@@ -154,14 +163,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
   },
   mainPicture: {
-    alignItems: 'center',
-    flex: 1.8,
+    justifyContent: 'flex-end',
+    flex: 2.5,
     width: '100%',
     height: '100%',
   },
   box: {
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 10},
+    shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.2,
     shadowRadius: 30,
     elevation: 1,
@@ -185,10 +194,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   clubName: {
-    fontSize: 24,
+    color: 'white',
+    fontSize: 30,
     fontWeight: 'bold',
+    zIndex: 1,
+    marginBottom: 8
+
   },
-  charText: {alignSelf: 'center', textAlign: 'center', top: -30},
+  charText: {
+    color: 'white',
+  },
   recordBtn: {
     justifyContent: 'center',
     width: 80,
@@ -202,24 +217,26 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   logo: {
-    left: width * 0.45 - 55,
+    right: 25,
     position: 'absolute',
-    top: -55,
+    bottom: -31,
     zIndex: 1000,
-    width: 110,
-    height: 110,
-    borderRadius: 60,
+    width: 62,
+    height: 62,
+    borderRadius: 31,
     alignSelf: 'center',
+    elevation:10
   },
   logoImage: {
     zIndex: 1000,
-    width: 110,
-    height: 110,
+    width: 62,
+    height: 62,
     borderRadius: 60,
     alignSelf: 'center',
+    elevation:4
   },
   slider: {
-    top: 110,
+    top:55,
     flex: 3,
   },
   activityIndicator: {
@@ -229,57 +246,66 @@ const styles = StyleSheet.create({
     height: 80,
   },
   intro: {
-    flex: 12,
+    flex: 4,
     shadowColor: '#E1E1E1',
-    shadowOffset: {height: 1.5, width: 0},
+    shadowOffset: { height: 1.5, width: 0 },
     shadowOpacity: 5,
     shadowRadius: 3,
     elevation: 1.5,
   },
   introBox: {
-    borderRadius: 5,
+    borderRadius: 10,
     backgroundColor: 'white',
-    top: 0,
-    marginBottom: width * 0.05,
-    marginTop: width * 0.04,
-    marginHorizontal: width * 0.07,
+    marginTop: 70,
+    marginHorizontal: 5,
     shadowColor: '#E1E1E1',
-    shadowOffset: {height: 1.5, width: 0},
+    shadowOffset: { height: 1.5, width: 0 },
     shadowOpacity: 5,
     shadowRadius: 3,
-    elevation: 1.5,
+    elevation: 1,
   },
   introduceTitle: {
-    fontSize: width * 0.05,
+    marginTop: 5,
+    marginLeft: 8,
+    fontSize: 17,
     fontWeight: 'bold',
-    marginTop: 50,
-    marginLeft: 15,
+
   },
   phone: {
-    flex: 1,
-    top: -30,
-    borderRadius: 5,
+    flex: 2,
+    borderRadius: 10,
     backgroundColor: 'white',
-    marginBottom: width * 0.13,
-    marginTop: width * 0.04,
-    marginHorizontal: width * 0.07,
+    marginTop: 10,
+    marginHorizontal: 5,
+
+    marginBottom: 30,
     shadowColor: '#E1E1E1',
-    shadowOffset: {height: 1.5, width: 0},
+    shadowOffset: { height: 1.5, width: 0 },
     shadowOpacity: 5,
     shadowRadius: 3,
-    elevation: 1.5,
-    width: '85%',
+    elevation: 1,
     paddingBottom: 20,
-    paddingHorizontal: 10,
+
   },
-  introduceText: {paddingVertical: 15, paddingHorizontal: 10},
+  introduceText: {
+    color: '#8D8D8D',
+    fontSize: 13,
+    paddingVertical: 11,
+    paddingHorizontal: 15
+  },
   phoneTitle: {
-    fontSize: width * 0.05,
+    fontSize: 17,
     fontWeight: 'bold',
-    marginTop: 30,
-    marginLeft: 15,
-    top: -30,
+    marginTop: 5,
+    marginLeft: 8,
+
   },
+  phoneText: {
+    color: '#8D8D8D',
+    fontSize: 13,
+    paddingVertical: 11,
+    paddingHorizontal: 15
+  }
 });
 
 export default ClubIntroduce;

@@ -8,6 +8,7 @@ const {width, height} = Dimensions.get('window');
 class Container extends Component {
   static navigationOptions = {
     header: null,
+    headerTransparent: true
   };
 
   constructor(props) {
@@ -102,11 +103,11 @@ class Container extends Component {
       clubPhoneNumber,
     });
 
-    // var clubKakao = response.data.message.clubKakao;
-    // clubKakao = clubKakao.replace(/\\n/gi, '\n');
-    // this.setState({
-    //   clubKakao,
-    // });
+    var clubKakao = response.data.message.clubKakao;
+    clubKakao = clubKakao.replace(/\\n/gi, '\n');
+    this.setState({
+      clubKakao,
+    });
 
     var clubIntroduce = response.data.message.clubIntroduce;
     clubIntroduce = clubIntroduce.replace(/\\n/gi, '\n');

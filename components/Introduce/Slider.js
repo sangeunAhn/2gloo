@@ -33,7 +33,7 @@ export default class Pictures extends React.Component {
           maximumTrackTintColor="#D1D5FA"
           thumbTintColor="white"
           thumbStyle={styles.slider}
-          trackStyle={{height: 3}}
+          trackStyle={{height: 4}}
         />
         <Text style={styles.sliderTextR}>{this.props.textR}</Text>
       </View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     color: '#003964',
     width: width * 0.2,
     textAlign: 'center',
-    fontSize: width * 0.035,
+    fontSize: 12,
   },
   slider: {
     borderWidth: 3.5,
@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
     color: '#580000',
     width: width * 0.2,
     textAlign: 'center',
-    fontSize: width * 0.035,
+    fontSize: 12,
   },
 });
