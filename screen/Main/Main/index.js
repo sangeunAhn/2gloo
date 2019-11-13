@@ -67,6 +67,7 @@ export default class Main extends Component {
       ) {
         this._KindsOrder();
         this._ExistClub();
+        this.props.navigation.setParams({from: null});
       }
     });
   }
@@ -76,19 +77,44 @@ export default class Main extends Component {
     this._ExistClub();
   };
 
-  _KindsOrder = () => {
+  _KindsOrder = async () => {
+    const school = this.props.navigation.getParam('schoolName', 'NO-ID');
     var kinds = [
-      '학술/교양',
-      '예술/문화/공연',
-      '체육',
-      '취업',
-      '창업',
-      '기타',
-      '봉사/사회',
-      '어학',
-      '친목',
-      '오락/게임',
-    ];
+        '학술/교양',
+        '예술/문화/공연',
+        '체육',
+        '취업',
+        '창업',
+        '기타',
+        '봉사/사회',
+        '어학',
+        '친목',
+        '오락/게임',
+      ],
+      kindsArray = [];
+
+    for (var i = 0; i < kinds.length; i++) {
+      await axios
+        .post('http://13.209.221.206/php/Main/FindClubs.php', {
+          school,
+          clubKind: kinds[i],
+        })
+        .then(result => {
+          const response = result.data;
+          response.forEach(row => {
+            const newKindsObject = {
+              [kinds[i]]: {
+                clubNo: row.clubNo,
+                clubName: row.clubName,
+                clubLogo: row.clubLogo,
+                clubMainPicture: row.clubMainPicture,
+              },
+            };
+            kindsArray.push(newKindsObject);
+          });
+        });
+    }
+    console.log(...kindsArray);
     var kindsOrder = [];
     let someArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     someArray.sort(function(a, b) {
@@ -179,7 +205,7 @@ export default class Main extends Component {
               </MenuTrigger>
               <MenuOptions
                 optionsContainerStyle={{
-                  paddingLeft:10,
+                  paddingLeft: 10,
                   marginTop: 20,
                   borderRadius: 10,
                   width: 130,

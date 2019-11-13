@@ -41,7 +41,9 @@ const ClubIntroduce = props => (
       isVisible={props.isImageViewVisible}
     /> */}
     {props.isGetting1 && props.isGetting2 ? (
-     <Swiper paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}} loop={false}>
+      <Swiper
+        paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}}
+        loop={false}>
         <View style={styles.container}>
           <BackButton navigation={props.navigation} />
           {props.clubMainPicture == null ||
@@ -91,6 +93,16 @@ const ClubIntroduce = props => (
                   </View>
                 )
               )}
+              <View
+                style={{
+                  right: 10,
+                  top: 10,
+                  width: 10,
+                  height: 10,
+                  backgroundColor: 'blue',
+                  position: 'absolute',
+                }}
+              />
             </View>
           </View>
           <View style={styles.slider}>
@@ -146,9 +158,9 @@ const styles = StyleSheet.create({
   },
   box: {
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 0.2,
+    shadowRadius: 30,
     elevation: 1,
     position: 'absolute',
     alignSelf: 'center',
@@ -158,7 +170,7 @@ const styles = StyleSheet.create({
     height: 180,
     padding: 10,
     borderRadius: 10,
-    flexDirection: 'row',
+    // flexDirection: 'row',
   },
   inBox: {
     flex: 1,
@@ -167,6 +179,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     alignItems: 'center',
     justifyContent: 'space-between',
+    backgroundColor: 'red',
   },
   clubName: {
     fontSize: 24,
@@ -253,7 +266,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 1.5,
     width: '85%',
-    paddingBottom:20,
+    paddingBottom: 20,
     paddingHorizontal: 10,
   },
   introduceText: {paddingVertical: 15, paddingHorizontal: 10},

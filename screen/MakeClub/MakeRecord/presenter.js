@@ -198,12 +198,7 @@ const MakeRecord = props => (
 
           {/* 완료버튼 */}
           <View style={styles.footer}>
-            {/* true면 <RecordTrue /> false면 <RecordFalse /> */}
-            {props.count >= 1 ? (
-              <RecordButton onPress={props.btnPress} />
-            ) : (
-              <RecordButtonN />
-            )}
+            <RecordButton onPress={props.btnPress} />
           </View>
         </View>
       </>
