@@ -74,6 +74,9 @@ const ClubIntroduce = props => (
                     return <ClubChars fontSize={13} chars={char} key={i} />;
                   })}
                 </Text>
+                <Text>
+                  {props.clubKakao}
+                </Text>
               </View>
               {props.clubLogo == null ||
               props.clubLogo === 'ul' ||

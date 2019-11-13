@@ -268,7 +268,42 @@ const MakeClub2 = props => (
           autoCorrect={false}
         />
       </View>
+      <View style={styles.block}>
+        <Text
+          style={[
+            styles.text,
+            {
+              color: props.isFocused3 ? '#000000' : '#8d97a5',
+            },
+          ]}>
+          오픈채팅방 (선택)
+        </Text>
+        <TextInput
+          onFocus={props.handleFocus3}
+          onBlur={props.clubKakao.length == 0 ? props.handleBlur3 : null}
+          style={[
+            styles.input,
+            {
+              height: height * 0.13,
+              borderColor: props.isFocused3 ? '#DCDCDC' : null,
+              shadowColor: props.isFocused3 ? '#E1E1E1' : null, // IOS
+              shadowOffset: props.isFocused3 ? {height: 1.5, width: 0} : null, // IOS
+              shadowOpacity: props.isFocused3 ? 5 : null, // IOS
+              shadowRadius: props.isFocused3 ? 3 : null, // IOS
+              elevation: props.isFocused3 ? 1.5 : null, // IOS
+            },
+          ]}
+          onChangeText={props.clubKakaoChange}
+          value={props.clubKakao}
+          maxLength={1000}
+          multiline={true}
+          autoCorrect={false}
+        />
+      </View>
     </View>
+
+    
+    
 
     <View style={styles.button}>
       {props.clubName.length == 0 && props.clubPhoneNumber.length == 0 ? (

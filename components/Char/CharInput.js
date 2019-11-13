@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   shap: {
     justifyContent: 'flex-end',
-    bottom: 12,
+    
     left: 8,
   },
   shapText1: {
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     zIndex: 999,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ADCDE9',
+    backgroundColor: '#a7bfe8',
     height: height * 0.055,
     width: width * 0.15,
 

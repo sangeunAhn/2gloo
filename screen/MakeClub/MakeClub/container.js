@@ -16,6 +16,7 @@ class Container extends Component {
       clubName: '',
       clubKind: '학술/교양',
       clubPhoneNumber: '',
+      clubKakao:'',
       clubIntroduce: '',
       clubLogo: null,
       clubMainPicture: null,
@@ -59,6 +60,7 @@ class Container extends Component {
         clubNameChange={this._clubNameChange}
         clubIntroduceChange={this._clubIntroduceChange}
         clubPhoneNumberChange={this._clubPhoneNumberChange}
+        clubKakaoChange={this._clubKakaoChange}
         clubSizeChange={this._clubSizeChange}
         clubAutonomousChange={this._clubAutonomousChange}
         clubFunnyChange={this._clubFunnyChange}
@@ -114,6 +116,12 @@ class Container extends Component {
     clubPhoneNumber = clubPhoneNumber.replace(/\\n/gi, '\n');
     await this.setState({
       clubPhoneNumber,
+    });
+
+    var clubKakao = response.data.message.clubKakao;
+    clubKakao = clubKakao.replace(/\\n/gi, '\n');
+    await this.setState({
+      clubKakao,
     });
 
     var clubIntroduce = response.data.message.clubIntroduce;
@@ -251,6 +259,7 @@ class Container extends Component {
       clubName,
       clubKind,
       clubPhoneNumber,
+      clubKakao,
       clubIntroduce,
       clubLogo,
       clubMainPicture,
@@ -268,6 +277,7 @@ class Container extends Component {
       formData.append('clubName', clubName);
       formData.append('clubKind', clubKind);
       formData.append('clubPhoneNumber', clubPhoneNumber);
+      formData.append('clubKakao', clubKakao);
       formData.append('clubIntroduce', clubIntroduce);
       formData.append('userNo', userNo);
       formData.append('school', school);
@@ -321,6 +331,7 @@ class Container extends Component {
       clubName,
       clubKind,
       clubPhoneNumber,
+      clubKakao,
       clubIntroduce,
       clubLogo,
       clubMainPicture,
@@ -338,6 +349,7 @@ class Container extends Component {
       formData.append('clubName', clubName);
       formData.append('clubKind', clubKind);
       formData.append('clubPhoneNumber', clubPhoneNumber);
+      formData.append('clubKakao', clubKakao);
       formData.append('clubIntroduce', clubIntroduce);
       formData.append('userNo', getUserNo);
       formData.append('clubSize', clubSize);
@@ -427,6 +439,10 @@ class Container extends Component {
 
   _clubPhoneNumberChange = clubPhoneNumber => {
     this.setState({clubPhoneNumber});
+  };
+
+  _clubKakaoChange = clubKakao => {
+    this.setState({clubKakao});
   };
 
   _clubSizeChange = clubSize => {
