@@ -93,17 +93,8 @@ const ClubIntroduce = props => (
                   </View>
                 )
               )}
-              <View
-                style={{
-                  right: 10,
-                  top: 10,
-                  width: 10,
-                  height: 10,
-                  backgroundColor: 'blue',
-                  position: 'absolute',
-                }}
-              />
             </View>
+            <View style={styles.boxShadow} />
           </View>
           <View style={styles.slider}>
             <SliderView {...props} textL={'소규모'} textR={'대규모'} />
@@ -149,28 +140,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FAFAFA',
+    alignItems: 'center',
   },
   mainPicture: {
     alignItems: 'center',
-    flex: 1.8,
+    flex: 1.9,
     width: '100%',
     height: '100%',
   },
   box: {
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 10},
-    shadowOpacity: 0.2,
-    shadowRadius: 30,
-    elevation: 1,
     position: 'absolute',
     alignSelf: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'white',
     width: width * 0.9,
     height: 180,
     padding: 10,
     borderRadius: 10,
     // flexDirection: 'row',
+    zIndex: 1,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 0.1,
+    shadowRadius: 25,
+    elevation: 1,
   },
   inBox: {
     flex: 1,
@@ -179,7 +173,17 @@ const styles = StyleSheet.create({
     marginTop: 50,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'red',
+  },
+  boxShadow: {
+    top: 160,
+    width: width * 0.6,
+    height: 20,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 0.1,
+    shadowRadius: 25,
+    elevation: 1,
+    backgroundColor: 'white',
   },
   clubName: {
     fontSize: 24,
