@@ -10,6 +10,11 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {
+  SharedElement,
+  SharedElementTransition,
+  nodeFromRef,
+} from 'react-native-shared-element';
 
 const {width, height} = Dimensions.get('window');
 
@@ -29,6 +34,8 @@ export default class MasonryList extends React.Component {
   };
 
   render() {
+    let startAncestor;
+    let startNode;
     return (
       <>
         <View id="logo" style={styles.container}>
@@ -48,17 +55,19 @@ export default class MasonryList extends React.Component {
                     ? this.props.RecordRegister(record.uri)
                     : this.props.goToPictures(record.uri)
                 }>
-                <FastImage
-                  key={index}
-                  style={[
-                    styles.record,
-                    {
-                      height: record.height,
-                    },
-                  ]}
-                  source={{uri: record.uri}}
-                  onLoad={this._onLoad()}
-                />
+                <SharedElement onNode={node => (startNode = node)}>
+                  <FastImage
+                    key={index}
+                    style={[
+                      styles.record,
+                      {
+                        height: record.height,
+                      },
+                    ]}
+                    source={{uri: record.uri}}
+                    onLoad={this._onLoad()}
+                  />
+                </SharedElement>
               </TouchableWithoutFeedback>
             ))}
           </View>
@@ -71,16 +80,18 @@ export default class MasonryList extends React.Component {
                     ? this.props.RecordRegister(record.uri)
                     : this.props.goToPictures(record.uri)
                 }>
-                <FastImage
-                  key={index}
-                  style={[
-                    styles.record,
-                    {
-                      height: record.height,
-                    },
-                  ]}
-                  source={{uri: record.uri}}
-                />
+                <SharedElement onNode={node => (startNode = node)}>
+                  <FastImage
+                    key={index}
+                    style={[
+                      styles.record,
+                      {
+                        height: record.height,
+                      },
+                    ]}
+                    source={{uri: record.uri}}
+                  />
+                </SharedElement>
               </TouchableWithoutFeedback>
             ))}
           </View>

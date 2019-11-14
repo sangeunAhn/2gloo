@@ -16,6 +16,7 @@ class Container extends Component {
     this.state = {
       clubName: '',
       clubPhoneNumber: '',
+      clubKakao:'',
       clubIntroduce: '',
       clubLogo: null,
       clubMainPicture: null,
@@ -100,6 +101,12 @@ class Container extends Component {
     this.setState({
       clubPhoneNumber,
     });
+
+    // var clubKakao = response.data.message.clubKakao;
+    // clubKakao = clubKakao.replace(/\\n/gi, '\n');
+    // this.setState({
+    //   clubKakao,
+    // });
 
     var clubIntroduce = response.data.message.clubIntroduce;
     clubIntroduce = clubIntroduce.replace(/\\n/gi, '\n');

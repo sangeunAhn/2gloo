@@ -15,8 +15,11 @@ import ClubChars from '../../../components/Char/ClubChars';
 import SliderView from '../../../components/Introduce/Slider';
 import BackButton from '../../../components/Button/BackButton';
 import Record from '../../../components/Introduce/Record';
+import {nodeFromRef} from 'react-native-shared-element';
 
 const {width, height} = Dimensions.get('window');
+let startAncestor;
+let startNode;
 const ClubIntroduce = props => (
   <>
     {/* <ImageView
@@ -74,6 +77,7 @@ const ClubIntroduce = props => (
                     return <ClubChars fontSize={13} chars={char} key={i} />;
                   })}
                 </Text>
+                {/* <Text>{props.clubKakao}</Text> */}
               </View>
               {props.clubLogo == null ||
               props.clubLogo === 'ul' ||

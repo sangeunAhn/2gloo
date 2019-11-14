@@ -223,19 +223,19 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
   - React-jsinspector (0.61.2)
-  - react-native-fbsdk (1.0.4):
+  - react-native-fbsdk (1.1.0):
     - React
-    - react-native-fbsdk/Core (= 1.0.4)
-    - react-native-fbsdk/Login (= 1.0.4)
-    - react-native-fbsdk/Share (= 1.0.4)
-  - react-native-fbsdk/Core (1.0.4):
-    - FBSDKCoreKit (~> 5.5)
+    - react-native-fbsdk/Core (= 1.1.0)
+    - react-native-fbsdk/Login (= 1.1.0)
+    - react-native-fbsdk/Share (= 1.1.0)
+  - react-native-fbsdk/Core (1.1.0):
+    - FBSDKCoreKit (~> 5.8)
     - React
-  - react-native-fbsdk/Login (1.0.4):
-    - FBSDKLoginKit (~> 5.5)
+  - react-native-fbsdk/Login (1.1.0):
+    - FBSDKLoginKit (~> 5.8)
     - React
-  - react-native-fbsdk/Share (1.0.4):
-    - FBSDKShareKit (~> 5.5)
+  - react-native-fbsdk/Share (1.1.0):
+    - FBSDKShareKit (~> 5.8)
     - React
   - react-native-image-picker (1.1.0):
     - React
@@ -289,6 +289,8 @@ PODS:
   - RNGestureHandler (1.5.0):
     - React
   - RNMagicMove (0.6.6):
+    - React
+  - RNSharedElement (0.5.1):
     - React
   - RNSVG (9.13.3):
     - React
@@ -344,6 +346,7 @@ DEPENDENCIES:
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNMagicMove (from `../node_modules/react-native-magic-move`)
+  - RNSharedElement (from `../node_modules/react-native-shared-element`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -430,6 +433,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNMagicMove:
     :path: "../node_modules/react-native-magic-move"
+  RNSharedElement:
+    :path: "../node_modules/react-native-shared-element"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -460,10 +465,10 @@ SPEC CHECKSUMS:
   React-jsi: 32285a21b1b24c36060493ed3057a34677d58d09
   React-jsiexecutor: 8909917ff7d8f21a57e443a866fd8d4560e50c65
   React-jsinspector: 111d7d342b07a904c400592e02a2b958f1098b60
-  react-native-fbsdk: 45e28bbab3e905cbc635c0bdd3444b372e933ae9
-  react-native-image-picker: 3637d63fef7e32a230141ab4660d3ceb773c824f
-  react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
-  react-native-viewpager: bbba55db2dc7554b88f986a88f8440bf2e624419
+  react-native-fbsdk: 9c13a4390b46e489b164588608ec118d155ff720
+  react-native-image-picker: 7a85cf7b0a53845f03ae52fb4592a2748ded069b
+  react-native-image-resizer: 1ffe71ec5f2596c3a24d42548c03bfbfb06fe810
+  react-native-viewpager: 88f4269c19d626d2ccd5f7c7f5f7f76422ddb9e3
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6
   React-RCTAnimation: e3cefa93c38c004c318f7ec04b883eb14b8b8235
   React-RCTBlob: d26ac0e313fbf14e7203473fd593ccaaeee8329e
@@ -474,11 +479,12 @@ SPEC CHECKSUMS:
   React-RCTText: e3ef6191cdb627855ff7fe8fa0c1e14094967fb8
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
-  ReactNativePermissions: e7db6c38a2f3fb8f26dbfdcaeb5c5e9364657a6d
-  RNCAsyncStorage: 5ae4d57458804e99f73d427214442a6b10a53856
+  ReactNativePermissions: 7cfad56d13c8961cd2a1005b4955b1400c79ef3e
+  RNCAsyncStorage: 60a80e72d95bf02a01cace55d3697d9724f0d77f
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
-  RNMagicMove: 9abba89dc760b09884d38e255a0f6b01924995cf
+  RNMagicMove: acc7d9dff86dd68588b01cb3515182e50b50b81c
+  RNSharedElement: a3ce1a9ac47351997b2ddc1e34682457c4da128d
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce

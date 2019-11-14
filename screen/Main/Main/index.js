@@ -46,6 +46,8 @@ export default class Main extends Component {
     super(props);
     this.state = {
       kindsOrder: [],
+      existKindsOrder: [],
+      notExistKindsOrder: [],
       collapseArray: [
         true,
         true,
@@ -91,7 +93,9 @@ export default class Main extends Component {
         '친목',
         '오락/게임',
       ],
-      kindsArray = [];
+      kindsLength = [],
+      existKinds = [],
+      notExistKinds = [];
 
     for (var i = 0; i < kinds.length; i++) {
       await axios
@@ -101,20 +105,50 @@ export default class Main extends Component {
         })
         .then(result => {
           const response = result.data;
-          response.forEach(row => {
-            const newKindsObject = {
-              [kinds[i]]: {
-                clubNo: row.clubNo,
-                clubName: row.clubName,
-                clubLogo: row.clubLogo,
-                clubMainPicture: row.clubMainPicture,
-              },
-            };
-            kindsArray.push(newKindsObject);
-          });
+          kindsLength.push(response.length);
         });
     }
-    console.log(...kindsArray);
+    // console.log(kindsLength);
+
+    for (var i = 0; i < 10; i++) {
+      if (kindsLength[i] !== 0) {
+        existKinds.push(kinds[i]);
+      } else {
+        notExistKinds.push(kinds[i]);
+      }
+    }
+    console.log(existKinds);
+
+    var existKindsOrder = [];
+    var notExistKindsOrder = [];
+    let existSome = [];
+    let notExistSome = [];
+    for (var i = 1; i <= existKinds.length; i++) {
+      await existSome.push(i);
+    }
+    for (var i = 1; i <= 10 - existKinds.length; i++) {
+      await notExistSome.push(i);
+    }
+    existSome.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+    notExistSome.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+    for (var i = 0; i < existKinds.length; i++) {
+      existKindsOrder.push(existKinds[existSome[i] - 1]);
+    }
+    notExistKindsOrder.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+    for (var i = 0; i < notExistKinds.length; i++) {
+      notExistKindsOrder.push(notExistKinds[notExistSome[i] - 1]);
+    }
+    console.log(existKindsOrder);
+    console.log(notExistKindsOrder);
+
+    this.setState({existKindsOrder, notExistKindsOrder});
+    //
     var kindsOrder = [];
     let someArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     someArray.sort(function(a, b) {
@@ -165,7 +199,12 @@ export default class Main extends Component {
 
   render() {
     const {navigation} = this.props;
-    const {kindsOrder, collapseArray} = this.state;
+    const {
+      kindsOrder,
+      collapseArray,
+      existKindsOrder,
+      notExistKindsOrder,
+    } = this.state;
     const t = this;
     const schoolName = navigation.getParam('schoolName', 'NO-ID');
     const userSchool = navigation.getParam('userSchool', 'NO-ID');
@@ -245,6 +284,108 @@ export default class Main extends Component {
             fadeDirection="up"
             scrollViewProps={{showsVerticalScrollIndicator: false}}
             title={schoolName}>
+            {/* {existKindsOrder.map((kinds, i) => {
+              return (
+                <Collapse
+                  isCollapsed={collapseArray[i]}
+                  onToggle={isCollapsed =>
+                    this.setState(collapseArray.splice(i, 1, isCollapsed))
+                  }>
+                  <CollapseHeader>
+                    <View style={{paddingHorizontal: width * 0.03}}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                        }}>
+                        <Text style={styles.menuTitle}>{kinds}</Text>
+                        {collapseArray[i] === true ? (
+                          <Ionicons
+                            style={{alignSelf: 'flex-end', marginBottom: -2}}
+                            name="ios-arrow-up"
+                            size={23}
+                            color="#a7bfe8"
+                          />
+                        ) : (
+                          <Ionicons
+                            style={{alignSelf: 'flex-end', marginBottom: -2}}
+                            name="ios-arrow-down"
+                            size={23}
+                            color="#a7bfe8"
+                          />
+                        )}
+                      </View>
+                      <View
+                        style={{
+                          alignItems: 'flex-end',
+                          marginBottom: height * 0.032,
+                        }}>
+                        <View style={styles.line} />
+                      </View>
+                    </View>
+                  </CollapseHeader>
+                  <CollapseBody>
+                    <ClubDiv
+                      key={i}
+                      clubKind={kinds}
+                      school={schoolName}
+                      {...this.props}
+                    />
+                  </CollapseBody>
+                </Collapse>
+              );
+            })}
+            {notExistKindsOrder.map((kinds, i) => {
+              return (
+                <Collapse
+                  isCollapsed={collapseArray[i]}
+                  onToggle={isCollapsed =>
+                    this.setState(collapseArray.splice(i, 1, isCollapsed))
+                  }>
+                  <CollapseHeader>
+                    <View style={{paddingHorizontal: width * 0.03}}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                        }}>
+                        <Text style={styles.menuTitle}>{kinds}</Text>
+                        {collapseArray[i] === true ? (
+                          <Ionicons
+                            style={{alignSelf: 'flex-end', marginBottom: -2}}
+                            name="ios-arrow-up"
+                            size={23}
+                            color="#a7bfe8"
+                          />
+                        ) : (
+                          <Ionicons
+                            style={{alignSelf: 'flex-end', marginBottom: -2}}
+                            name="ios-arrow-down"
+                            size={23}
+                            color="#a7bfe8"
+                          />
+                        )}
+                      </View>
+                      <View
+                        style={{
+                          alignItems: 'flex-end',
+                          marginBottom: height * 0.032,
+                        }}>
+                        <View style={styles.line} />
+                      </View>
+                    </View>
+                  </CollapseHeader>
+                  <CollapseBody>
+                    <ClubDiv
+                      key={i}
+                      clubKind={kinds}
+                      school={schoolName}
+                      {...this.props}
+                    />
+                  </CollapseBody>
+                </Collapse>
+              );
+            })} */}
             {kindsOrder.map((kinds, i) => {
               return (
                 <Collapse

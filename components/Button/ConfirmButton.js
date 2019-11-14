@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   ActivityIndicator,
+  TouchableWithoutFeedback
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -25,7 +26,7 @@ export default class ConfirmButton extends Component {
   render() {
     return (
       <View style={[styles.button, {backgroundColor: this.props.buttonColor}]}>
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableWithoutFeedback onPress={this.props.onPress}>
           <LinearGradient
             colors={['#CFE1FF', '#9AB2DC']}
             style={styles.button2}>
@@ -37,7 +38,7 @@ export default class ConfirmButton extends Component {
               </Text>
             )}
           </LinearGradient>
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

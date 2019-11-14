@@ -13,13 +13,17 @@ import Picture from '../../../components/Photo/Picture';
 import HeaderScrollView from 'react-native-header-scroll-view';
 import {getStatusBarHeight, ifIphoneX} from 'react-native-iphone-x-helper';
 import BackButton from '../../../components/Button/BackButton';
+import {nodeFromRef} from 'react-native-shared-element';
 
 const {width, height} = Dimensions.get('window');
-
+let endAncestor;
+let endNode;
 const ClubRecordPictures = props => (
   <>
     {props.isGetting ? (
-      <View style={styles.container}>
+      <View
+        style={styles.container}
+        ref={ref => (endAncestor = nodeFromRef(ref))}>
         <BackButton navigation={props.navigation} />
         <HeaderScrollView
           headerContainerStyle={styles.headerContainerStyle}
