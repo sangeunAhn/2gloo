@@ -296,10 +296,21 @@ const MakeClub2 = props => (
           ]}
           onChangeText={props.clubKakaoChange}
           value={props.clubKakao}
-          maxLength={1000}
+          maxLength={100}
           multiline={true}
           autoCorrect={false}
+          autoCapitalize={false}
         />
+        <Text
+          style={[
+            styles.text,
+            {
+              color: '#8d97a5',
+              fontSize: 15,
+            },
+          ]}>
+          ※ 'http://'를 넣어주세요.
+        </Text>
       </View>
     </View>
 

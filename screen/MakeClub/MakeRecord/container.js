@@ -124,7 +124,6 @@ class Container extends React.Component {
     const {navigation} = this.props;
     var userNo = navigation.getParam('userNo', 'NO-ID');
     const t = this;
-    console.log(userNo, imageRoom);
 
     // 데이터 가져오기
     await axios
@@ -133,7 +132,6 @@ class Container extends React.Component {
         imageRoom: imageRoom,
       })
       .then(async result => {
-        console.log(result)
         const response = result.data;
         var recordArray = new Array();
         await Promise.all(

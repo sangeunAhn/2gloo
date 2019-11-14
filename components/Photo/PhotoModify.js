@@ -162,6 +162,11 @@ export default class PhotoModify extends React.Component {
           this.props.changeUpdateLoading(id);
         } else {
           this.setState({image: response.uri, disabled: true});
+          Image.getSize(response.uri, (width, height) => {
+            const screenWidth = Dimensions.get('window').width;
+            const getHeight = (height * screenWidth - 20) / width;
+            this.setState({height: getHeight});
+          });
           await updateImage(id, response.uri);
           this.props.changeUpdateLoading(id);
         }

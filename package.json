@@ -52,6 +52,7 @@
     "react-native-picker-module": "^1.1.1",
     "react-native-picker-select": "^6.3.2",
     "react-native-popup-menu": "^0.15.6",
+    "react-native-shared-element": "^0.5.1",
     "react-native-simple-modal": "^9.0.1",
     "react-native-snap-carousel": "^3.8.0",
     "react-native-svg": "^9.9.9",
@@ -76,6 +77,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.5.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.8.6"
