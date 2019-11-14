@@ -280,6 +280,7 @@ const MakeClub2 = props => (
         </Text>
         <TextInput
           onFocus={props.handleFocus3}
+          autoCapitalize = 'none'
           onBlur={props.clubKakao.length == 0 ? props.handleBlur3 : null}
           style={[
             styles.input,
