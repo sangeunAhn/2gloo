@@ -284,7 +284,7 @@ export default class Main extends Component {
             fadeDirection="up"
             scrollViewProps={{showsVerticalScrollIndicator: false}}
             title={schoolName}>
-            {/* {existKindsOrder.map((kinds, i) => {
+            {existKindsOrder.map((kinds, i) => {
               return (
                 <Collapse
                   isCollapsed={collapseArray[i]}
@@ -385,8 +385,8 @@ export default class Main extends Component {
                   </CollapseBody>
                 </Collapse>
               );
-            })} */}
-            {kindsOrder.map((kinds, i) => {
+            })}
+            {/* {kindsOrder.map((kinds, i) => {
               return (
                 <Collapse
                   isCollapsed={collapseArray[i]}
@@ -436,7 +436,7 @@ export default class Main extends Component {
                   </CollapseBody>
                 </Collapse>
               );
-            })}
+            })} */}
           </HeaderScrollView>
           {/* {schoolName === userSchool ? (
           <TouchableOpacity style={styles.addButton} onPress={this._ExistClub}>

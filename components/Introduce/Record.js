@@ -7,7 +7,7 @@ import {
   Platform,
   ActivityIndicator,
 } from 'react-native';
-import BackButton from '../Button/BackButton';
+import BackButton2 from '../Button/BackButton2';
 import MasonryView from '..//Photo/MasonryList';
 import HeaderScrollView from 'react-native-header-scroll-view';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
@@ -28,7 +28,7 @@ export default class Pictures extends React.Component {
       <>
         {this.props.recordIsGetting ? (
           <View style={styles.container}>
-            <BackButton navigation={this.props.navigation} />
+            <BackButton2 navigation={this.props.navigation} />
             <View style={styles.container}>
               <HeaderScrollView
                 containerStyle={{backgroundColor: '#FAFAFA'}}

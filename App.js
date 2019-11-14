@@ -85,7 +85,7 @@ export default class App extends React.Component {
             // dark-content, light-content and default
             hidden={false}
             //To hide statusBar
-            backgroundColor="#FAFAFA"
+            backgroundColor="transparent"
             //Background color of statusBar only works for Android
             translucent={false}
             //allowing light, but not detailed shapes
