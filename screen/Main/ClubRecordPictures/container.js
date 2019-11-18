@@ -10,9 +10,6 @@ class Container extends React.Component {
     super(props);
     this._handleBackButtonClick = this._handleBackButtonClick.bind(this);
     this.state = {
-      recordName: '',
-      recordContent: '',
-      picture: null,
       isGetting: false,
       getDatas: '',
     };

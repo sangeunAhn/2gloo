@@ -56,9 +56,6 @@ export default class RecordRegister extends React.Component {
 		const t = this;
 		let tmp = await ImageResizer.createResizedImage(image, 600, 600, 'JPEG', 100);
 		image = tmp.uri;
-		await Image.getSize(image, (width, height) => {
-			this.setState({imageWidth: width, imageHeight: height});
-		});
 		this.setState(prevState => {
 			const ID = t.state.idCount.toString();
 			const {count, idCount} = this.state;
@@ -81,16 +78,10 @@ export default class RecordRegister extends React.Component {
 			};
 			return {...newState};
 		});
-		// console.log(this.state.images);
 	};
 
-	_addImageM = async (image, comment, createdAt) => {
+	_addImageM = async (image, comment, createdAt, width, height) => {
 		const t = this;
-		let tmp = await ImageResizer.createResizedImage(image, 600, 600, 'JPEG', 100);
-		image = tmp.uri;
-		await Image.getSize(image, (width, height) => {
-			this.setState({imageWidth: width, imageHeight: height});
-		});
 		this.setState(prevState => {
 			const ID = t.state.idCount.toString();
 			const {count, idCount} = this.state;
@@ -111,7 +102,7 @@ export default class RecordRegister extends React.Component {
 					...newToDoObject,
 				},
 			};
-			return {...newState};
+			return {...newState, imageWidth: width, imageHeight: height};
 		});
 	};
 
@@ -177,7 +168,7 @@ export default class RecordRegister extends React.Component {
 	_setDatas = async response => {
 		const t = this;
 		for (var item of response.data) {
-			await t._addImageM(item.recordPicture, item.recordContent, item.createdAt);
+			await t._addImageM(item.recordPicture, item.recordContent, item.createdAt, item.width, item.height);
 		}
 	};
 
@@ -225,28 +216,25 @@ export default class RecordRegister extends React.Component {
 		const {navigation} = this.props;
 		const {imageWidth, imageHeight} = this.state;
 		var userNo = navigation.getParam('userNo', 'NO-ID');
-		console.log(imageWidth, imageHeight);
 		let formData = new FormData();
 		formData.append('image', {
 			uri: image,
 			name: 'image.jpeg',
 			type: 'image/jpeg',
 		});
-		formData.append('width', imageWidth);
-		formData.append('height', imageHeight);
 		formData.append('recordContent', comment);
 		formData.append('userNo', userNo);
 		formData.append('imageRoom', imageRoom);
 		formData.append('createdAt', createdAt);
 
 		// 데이터베이스에 넣기
-		await fetch('http://13.209.221.206/php/MakeClub/SetRecord_front_scaleDown.php', {
+		await fetch('http://13.209.221.206/php/MakeClub/SetRecord.php', {
 			method: 'POST',
 			body: formData,
 			header: {
 				'content-type': 'multipart/form-data',
 			},
-		}).then(result => console.log(result));
+		});
 	};
 
 	_handleBackButtonClick = () => {

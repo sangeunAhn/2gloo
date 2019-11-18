@@ -102,10 +102,7 @@ const MakeRecordPictures = props => (
             {Object.values(props.images).map(image => (
               <PhotoModify
                 key={image.id}
-                deleteImage={props.deleteImage}
-                updateImage={props.updateImage}
-                updateComment={props.updateComment}
-                changeUpdateLoading={props.changeUpdateLoading}
+                {...props}
                 {...image}
               />
             ))}

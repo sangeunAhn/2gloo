@@ -157,17 +157,6 @@ const MakeRecord = props => (
 
             {props.count >= 1 ? (
               <>
-                {/* <MasonryList
-                  backgroundColor="#FAFAFA"
-                  imageContainerStyle={{borderRadius: 6, marginBottom: 9}}
-                  spacing={2}
-                  images={props.listRecords}
-                  onPressImage={(item, index) => {
-                    props.RecordRegister(item.uri);
-                  }}
-                  customImageComponent={FastImage}
-                  sorted={true}
-                /> */}
                 <MasonryView {...props} from={'update'} />
               </>
             ) : (
@@ -267,7 +256,7 @@ const styles = StyleSheet.create({
   },
   loading: {
     width,
-    height: height * 0.7,
+    height: height,
     justifyContent: 'center',
     alignItems: 'center',
   },

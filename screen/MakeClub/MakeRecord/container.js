@@ -15,7 +15,6 @@ class Container extends React.Component {
       count: 0,
       isGetting: false,
       imageRoom: [],
-      recordHeights: [],
       leftRecords: [],
       rightRecords: [],
     };
@@ -34,8 +33,6 @@ class Container extends React.Component {
         this.setState({isGetting: true});
       }
       this.setState({isGetting: true});
-
-      await this._getRecordHeight();
       this._distinguishHeight();
     });
   }
@@ -52,29 +49,20 @@ class Container extends React.Component {
     );
   }
 
-  _getImageSize = async uri =>
-    new Promise(resolve => {
-      Image.getSize(uri, (width, height) => {
-        const screenWidth = Dimensions.get('window').width;
-        const getHeight = (height * screenWidth * 0.5 - 22) / width;
-        resolve([getHeight]);
-      });
-    });
-
   _distinguishHeight = async () => {
-    const recordHeights = this.state.recordHeights;
+    const records = this.state.records;
     var leftHeight = 0,
       rightHeight = 0;
     var leftRecords = [];
     var rightRecords = [];
 
-    for (var i = 0; i < recordHeights.length; i++) {
+    for (var i = 0; i < records.length; i++) {
       if (leftHeight <= rightHeight) {
-        leftHeight += recordHeights[i].height;
-        await leftRecords.push(recordHeights[i]);
+        leftHeight += records[i].height;
+        await leftRecords.push(records[i]);
       } else {
-        rightHeight += recordHeights[i].height;
-        await rightRecords.push(recordHeights[i]);
+        rightHeight += records[i].height;
+        await rightRecords.push(records[i]);
       }
     }
 
@@ -82,16 +70,6 @@ class Container extends React.Component {
       leftRecords,
       rightRecords,
     });
-  };
-
-  _getRecordHeight = async () => {
-    const items = [];
-    for (var item of this.state.records) {
-      const {uri} = item;
-      const [height] = await this._getImageSize(uri);
-      items.push({uri, height});
-    }
-    this.setState({recordHeights: items});
   };
 
   _getImageRoom = async () => {
@@ -136,13 +114,20 @@ class Container extends React.Component {
         var recordArray = new Array();
         await Promise.all(
           response.map(async row => {
-            await recordArray.push({uri: row.recordPicture});
+            var height = await t._getHeight(row.width, row.height);
+            await recordArray.push({uri: row.recordPicture, height});
             await t.setState({count: this.state.count + 1});
           }),
         );
         await t.setState({records: [...this.state.records, ...recordArray]});
       });
   };
+
+  _getHeight = (width, height) => {
+    const screenWidth = Dimensions.get('window').width;
+    const getHeight = (height * screenWidth * 0.5 - 22) / width;
+    return getHeight;
+  }
 
   _RecordRegister = async item => {
     var t = this;
