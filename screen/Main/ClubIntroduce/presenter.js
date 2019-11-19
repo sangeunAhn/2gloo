@@ -19,7 +19,6 @@ import ClubChars from '../../../components/Char/ClubChars';
 import SliderView from '../../../components/Introduce/Slider';
 import BackButton from '../../../components/Button/BackButton';
 import BackButtonW from '../../../components/Button/BackButtonW';
-import BackButton2 from '../../../components/Button/BackButton2';
 import Record from '../../../components/Introduce/Record';
 import LinearGradient from 'react-native-linear-gradient';
 import GestureRecognizer from 'react-native-swipe-gestures';
@@ -28,27 +27,6 @@ const {width, height} = Dimensions.get('window');
 
 const ClubIntroduce = props => (
 	<>
-		{/* <ImageView
-      images={[
-        {
-          source: {
-            uri: props.clubMainPicture,
-          },
-          title: '메인사진',
-          width: width,
-        },
-        {
-          source: {
-            uri: props.clubLogo,
-          },
-          title: '로고사진',
-          width: width,
-          height: width,
-        },
-      ]}
-      imageIndex={props.imageViewIndex}
-      isVisible={props.isImageViewVisible}
-    /> */}
 		{props.isGetting1 && props.isGetting2 ? (
 			<>
 				<Swiper paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}} loop={false}>
@@ -145,8 +123,8 @@ const ClubIntroduce = props => (
 						</GestureRecognizer>
 					</View>
 
-					<SafeAreaView style={{flex: 1, backgroundColor: '#FAFAFA'}}>
-						<BackButton2 navigation={props.navigation} />
+					<View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
+						<BackButton navigation={props.navigation} />
 						<View style={styles.intro}>
 							<ScrollView style={styles.introBox} nestedScrollEnabled={true}>
 								<Text style={styles.introduceTitle}>Introduce</Text>
@@ -159,7 +137,7 @@ const ClubIntroduce = props => (
 								<Text style={styles.phoneText}>{props.clubPhoneNumber}</Text>
 							</ScrollView>
 						</View>
-					</SafeAreaView>
+					</View>
 
 					<Record {...props} />
 				</Swiper>
@@ -286,6 +264,7 @@ const styles = StyleSheet.create({
 		shadowOpacity: 5,
 		shadowRadius: 3,
 		elevation: 1.5,
+		marginTop: 10,
 	},
 	introBox: {
 		borderRadius: 10,
