@@ -65,8 +65,9 @@ export default class ClubChars extends React.Component {
       quality: 0.7,
     };
 
-    const response = await Permissions.request('photo');
-    this.setState({photoPermission: response});
+    await Permissions.request('photo').then(response => {
+			this.setState({photoPermission: response});
+		});
 
     if (this.state.photoPermission === 'authorized') {
       setTimeout(() => {
@@ -85,6 +86,7 @@ export default class ClubChars extends React.Component {
           this.props.changeAddLoading();
         } else {
           await this.props.addImage(response.uri);
+          console.log(response.uri)
           this.props.changeAddLoading();
         }
       });

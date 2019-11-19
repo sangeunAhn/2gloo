@@ -2,15 +2,11 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   Dimensions,
-  Text,
   View,
   ActivityIndicator,
-  Image,
-  TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-
 
 const {width, height} = Dimensions.get('window');
 
@@ -30,8 +26,6 @@ export default class MasonryList extends React.Component {
   };
 
   render() {
-    let startAncestor;
-    let startNode;
     return (
       <>
         <View id="logo" style={styles.container}>
@@ -51,7 +45,7 @@ export default class MasonryList extends React.Component {
                     ? this.props.RecordRegister(record.uri)
                     : this.props.goToPictures(record.uri)
                 }>
-              
+
                   <FastImage
                     key={index}
                     style={[
@@ -63,7 +57,7 @@ export default class MasonryList extends React.Component {
                     source={{uri: record.uri}}
                     onLoad={this._onLoad()}
                   />
-              
+
               </TouchableWithoutFeedback>
             ))}
           </View>
@@ -76,7 +70,7 @@ export default class MasonryList extends React.Component {
                     ? this.props.RecordRegister(record.uri)
                     : this.props.goToPictures(record.uri)
                 }>
-            
+
                   <FastImage
                     key={index}
                     style={[
@@ -87,7 +81,7 @@ export default class MasonryList extends React.Component {
                     ]}
                     source={{uri: record.uri}}
                   />
-               
+
               </TouchableWithoutFeedback>
             ))}
           </View>
@@ -112,6 +106,7 @@ const styles = StyleSheet.create({
   record: {
     marginBottom: 11,
     borderRadius: 10,
+    backgroundColor: 'gray'
   },
   leftView: {
     flex: 1,

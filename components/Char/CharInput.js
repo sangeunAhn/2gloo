@@ -105,17 +105,16 @@ const styles = StyleSheet.create({
   },
   shap: {
     justifyContent: 'flex-end',
-    
     left: 8,
   },
   shapText1: {
     fontSize: width * 0.05,
     color: '#DCDCDC',
-    top: -8,
+    top: -height*0.021,
   },
   shapText2: {
     fontSize: width * 0.05,
-    top: -8,
+    top: -height*0.021,
   },
   addBtn: {
     zIndex: 999,

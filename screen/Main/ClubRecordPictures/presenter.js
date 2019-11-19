@@ -16,8 +16,6 @@ import BackButton from '../../../components/Button/BackButton';
 
 
 const {width, height} = Dimensions.get('window');
-let endAncestor;
-let endNode;
 const ClubRecordPictures = props => (
   <>
     {props.isGetting ? (
@@ -38,6 +36,8 @@ const ClubRecordPictures = props => (
               key={image.createdAt}
               picture={image.recordPicture}
               text={image.recordContent}
+              width={image.width}
+              height={image.height}
             />
           ))}
         </HeaderScrollView>
