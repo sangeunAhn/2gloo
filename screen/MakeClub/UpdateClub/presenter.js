@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   Dimensions,
+  TouchableWithoutFeedback,
   TouchableOpacity,
   SafeAreaView,
   Text,
   View,
   Platform,
+  Linking
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import UpdateButton from '../../../components/Button/updateClubButton/UpdateButton';
@@ -46,6 +48,9 @@ const UpdateClub = props => (
         </View>
       </View>
       <Text style={styles.screenTitle}>모임 수정</Text>
+      <TouchableWithoutFeedback  onPress={() => Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')}>
+        <Text style={{paddingLeft:15,  color:'#8D8D8D'}}>중앙동아리 신청</Text>
+      </TouchableWithoutFeedback>
     </View>
   </>
 );

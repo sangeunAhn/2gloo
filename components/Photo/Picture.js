@@ -9,11 +9,7 @@ import {
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {Transition} from 'react-navigation-fluid-transitions';
-import {
-  SharedElement,
-  SharedElementTransition,
-  nodeFromRef,
-} from 'react-native-shared-element';
+
 
 const {height, width} = Dimensions.get('window');
 
@@ -42,7 +38,7 @@ export default class Pictures extends React.Component {
         <View style={styles.container}>
           <View style={[styles.imageView, {height: this.state.height}]}>
             <Transition shared={this.props.picture}>
-              <SharedElement onNode={node => (endNode = node)}>
+      
                 <FastImage
                   style={{
                     width: width - 22,
@@ -51,7 +47,7 @@ export default class Pictures extends React.Component {
                   source={{uri: this.props.picture}}
                   onLoad={this._onLoad}
                 />
-              </SharedElement>
+            
             </Transition>
           </View>
           {!this.state.onLoad && (

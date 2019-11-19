@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     width: 18,
     height: 18,
     borderRadius: 18 * 0.5,
+    elevation:3
   },
   sliderTextR: {
     color: '#580000',

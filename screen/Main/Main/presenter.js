@@ -140,7 +140,7 @@ const ClubRecordPictures = props => (
       <View style={{alignItems: 'center', marginTop: 15, marginBottom: 40}}>
         <Text
           style={{fontSize: width * 0.03, marginBottom: 10}}
-          onPress={() => Linking.openURL('http://pf.kakao.com/_BDxjiT/chat')}>
+          onPress={() => Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')}>
           1:1 문의하기
         </Text>
         <Text

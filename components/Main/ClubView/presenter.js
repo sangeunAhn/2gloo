@@ -60,7 +60,7 @@ const ClubView = props => (
             <View style={{width: 40, height: 40}} />
           ) : (
             <Thumbnail
-              style={{width: 40, height: 40}}
+              style={{width: 40, height: 40, elevation:5}}
               source={{uri: props.clubLogo}}
             />
           )}
@@ -72,7 +72,7 @@ const ClubView = props => (
             <Text style={{fontSize: 12}}>
               {' '}
               {props.clubChar.map((char, i) => {
-                return <ClubChars chars={char} key={i} />;
+                return <ClubChars color={'#8D8D8D'}chars={char} key={i} />;
               })}
             </Text>
           </Body>
