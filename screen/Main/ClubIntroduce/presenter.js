@@ -52,6 +52,44 @@ const ClubIntroduce = props => (
               }}> */}
             <StatusBar translucent={true} />
             <BackButtonW navigation={props.navigation} />
+            {/*  */}
+            <Menu
+          style={{
+            position: 'absolute',
+            right: 2,
+            top: Platform.OS === 'ios' ? 35 : 20,
+            zIndex: 1,
+            // backgroundColor: 'red',
+          }}>
+          <MenuTrigger
+            style={{
+              paddingVertia: 5,
+              paddingHorizontal: 10,
+            }}>
+            <SafeAreaView>
+              <Icon name="dots-three-horizontal" size={20} color={'white'} />
+            </SafeAreaView>
+          </MenuTrigger>
+          <MenuOptions
+            optionsContainerStyle={{
+              paddingLeft: 10,
+              marginTop: 20,
+              borderRadius: 10,
+              width: 130,
+              height: 40,
+              justifyContent: 'space-around',
+            }}>
+            <MenuOption
+              value={2}
+              style={{marginTop: 3}}
+              onSelect={() =>
+                Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
+              }
+              text="신고하기"
+            />
+          </MenuOptions>
+        </Menu>
+        {/*  */}
             {props.clubMainPicture == null ||
             props.clubMainPicture === 'ul' ||
             props.clubMainPicture === '' ? (
@@ -222,26 +260,8 @@ const ClubIntroduce = props => (
 
           <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
             <BackButton navigation={props.navigation} />
-            <View style={styles.intro}>
-              <ScrollView style={styles.introBox} nestedScrollEnabled={true}>
-                <Text style={styles.introduceTitle}>Introduce</Text>
-                <Text style={styles.introduceText}>{props.clubIntroduce}</Text>
-              </ScrollView>
-            </View>
-            <View style={styles.phoneView}>
-              <ScrollView style={styles.phone}>
-                <Text style={styles.phoneTitle}>Phone number</Text>
-                <Text style={styles.phoneText}>{props.clubPhoneNumber}</Text>
-              </ScrollView>
-            </View>
-          </View>
-
-          <Record {...props} />
-        </Swiper>
-        <View
-          style={styles.backSwipe}
-        />
-        <Menu
+            {/*  */}
+            <Menu
           style={{
             position: 'absolute',
             right: 2,
@@ -277,6 +297,27 @@ const ClubIntroduce = props => (
             />
           </MenuOptions>
         </Menu>
+        {/*  */}
+            <View style={styles.intro}>
+              <ScrollView style={styles.introBox} nestedScrollEnabled={true}>
+                <Text style={styles.introduceTitle}>Introduce</Text>
+                <Text style={styles.introduceText}>{props.clubIntroduce}</Text>
+              </ScrollView>
+            </View>
+            <View style={styles.phoneView}>
+              <ScrollView style={styles.phone}>
+                <Text style={styles.phoneTitle}>Phone number</Text>
+                <Text style={styles.phoneText}>{props.clubPhoneNumber}</Text>
+              </ScrollView>
+            </View>
+          </View>
+
+          <Record {...props} />
+        </Swiper>
+        <View
+          style={styles.backSwipe}
+        />
+        
       </>
     ) : (
       <ActivityIndicator size="large" style={styles.activityIndicator} />
@@ -361,10 +402,10 @@ const styles = StyleSheet.create({
     borderRadius: 31,
     alignSelf: 'center',
     elevation: 10,
-    shadowColor: '#bdc3c7',
-    shadowOffset: {height: 4, width: 0},
-    shadowOpacity: 5,
-    shadowRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
   logoImage: {
     zIndex: 1000,
@@ -442,9 +483,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 100,
     left: 0,
-    width: 100,
+    width: 20,
     height: height,
     zIndex: 10,
+    // backgroundColor:'red'
   },
 });
 

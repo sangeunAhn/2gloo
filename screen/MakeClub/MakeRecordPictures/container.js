@@ -54,7 +54,7 @@ export default class RecordRegister extends React.Component {
 
 	_addImage = async image => {
 		const t = this;
-		let tmp = await ImageResizer.createResizedImage(image, 600, 600, 'JPEG', 100);
+		let tmp = await ImageResizer.createResizedImage(image, 700, 700, 'JPEG', 100);
 		image = tmp.uri;
 		this.setState(prevState => {
 			const ID = t.state.idCount.toString();
@@ -121,7 +121,7 @@ export default class RecordRegister extends React.Component {
 	};
 
 	_updateImage = async (id, image) => {
-		let tmp = await ImageResizer.createResizedImage(image, 600, 600, 'JPEG', 100);
+		let tmp = await ImageResizer.createResizedImage(image, 700, 700, 'JPEG', 100);
 		image = tmp.uri;
 		this.setState(prevState => {
 			const newState = {
