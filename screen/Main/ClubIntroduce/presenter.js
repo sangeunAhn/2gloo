@@ -41,7 +41,7 @@ const ClubIntroduce = props => (
           paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}}
           loop={false}>
           <View style={styles.container}>
-            <GestureRecognizer
+            {/* <GestureRecognizer
               onSwipeRight={props.onSwipeRight}
               config={{
                 velocityThreshold: 0.3,
@@ -49,17 +49,95 @@ const ClubIntroduce = props => (
               }}
               style={{
                 flex: 1,
-              }}>
-              <StatusBar translucent={true} />
-              <BackButtonW navigation={props.navigation} />
-              {props.clubMainPicture == null ||
-              props.clubMainPicture === 'ul' ||
-              props.clubMainPicture === '' ? (
+              }}> */}
+            <StatusBar translucent={true} />
+            <BackButtonW navigation={props.navigation} />
+            {props.clubMainPicture == null ||
+            props.clubMainPicture === 'ul' ||
+            props.clubMainPicture === '' ? (
+              <View style={[styles.mainPicture, {backgroundColor: '#A7BFE8'}]}>
+                <ImageBackground
+                  // blurRadius={2}
+                  // source={{uri: props.clubMainPicture}}
+                  style={styles.mainPicture}>
+                  <LinearGradient
+                    colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
+                    style={{
+                      width: width,
+                      height: height * 0.3,
+                      justifyContent: 'flex-end',
+                    }}>
+                    {/* <View opacity={0.5} style={{height:height*0.3, justifyContent:'flex-end', backgroundColor:'red'}}> */}
+                    <View style={{marginLeft: 15, marginBottom: 14}}>
+                      <Text style={styles.clubName}>{props.clubName}</Text>
+                      <Text note style={styles.charText}>
+                        {' '}
+                        {props.clubChar.map((char, i) => {
+                          return (
+                            <ClubChars
+                              color={'white'}
+                              fontSize={13}
+                              chars={char}
+                              key={i}
+                            />
+                          );
+                        })}
+                      </Text>
+                    </View>
+                    {/* </View> */}
+                  </LinearGradient>
+                </ImageBackground>
+                {props.clubLogo == null ||
+                props.clubLogo === 'ul' ||
+                props.clubLogo === '' ? (
+                  <View
+                    onPress={props.imageViewVisible2}
+                    style={[styles.logo, {backgroundColor: '#6190E8'}]}>
+                    <View
+                      style={[
+                        styles.logoImage,
+                        {backgroundColor: '#6190E8', width: 30, height: 30},
+                      ]}
+                    />
+                  </View>
+                ) : (
+                  props.clubLogo && (
+                    <View
+                      onPress={props.imageViewVisible2}
+                      style={[styles.logo]}>
+                      <Thumbnail
+                        source={{uri: props.clubLogo}}
+                        style={styles.logoImage}
+                      />
+                    </View>
+                  )
+                )}
+                {props.clubKakao === '' ? (
+                  <></>
+                ) : (
+                  <TouchableWithoutFeedback
+                    onPress={() => Linking.openURL(props.clubKakao)}>
+                    <Image
+                      style={{
+                        position: 'absolute',
+                        width: 45,
+                        height: 45,
+                        right: 4,
+                        bottom: 28,
+                      }}
+                      source={require('../../../images/kakaoLogo.png')}
+                    />
+                  </TouchableWithoutFeedback>
+                )}
+              </View>
+            ) : (
+              props.clubMainPicture && (
                 <View
-                  style={[styles.mainPicture, {backgroundColor: '#A7BFE8'}]}>
+                  style={styles.mainPicture}
+                  onPress={props.imageViewVisible1}>
                   <ImageBackground
                     // blurRadius={2}
-                    // source={{uri: props.clubMainPicture}}
+                    source={{uri: props.clubMainPicture}}
                     style={styles.mainPicture}>
                     <LinearGradient
                       colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
@@ -131,94 +209,15 @@ const ClubIntroduce = props => (
                     </TouchableWithoutFeedback>
                   )}
                 </View>
-              ) : (
-                props.clubMainPicture && (
-                  <View
-                    style={styles.mainPicture}
-                    onPress={props.imageViewVisible1}>
-                    <ImageBackground
-                      // blurRadius={2}
-                      source={{uri: props.clubMainPicture}}
-                      style={styles.mainPicture}>
-                      <LinearGradient
-                        colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
-                        style={{
-                          width: width,
-                          height: height * 0.3,
-                          justifyContent: 'flex-end',
-                        }}>
-                        {/* <View opacity={0.5} style={{height:height*0.3, justifyContent:'flex-end', backgroundColor:'red'}}> */}
-                        <View style={{marginLeft: 15, marginBottom: 14}}>
-                          <Text style={styles.clubName}>{props.clubName}</Text>
-                          <Text note style={styles.charText}>
-                            {' '}
-                            {props.clubChar.map((char, i) => {
-                              return (
-                                <ClubChars
-                                  color={'white'}
-                                  fontSize={13}
-                                  chars={char}
-                                  key={i}
-                                />
-                              );
-                            })}
-                          </Text>
-                        </View>
-                        {/* </View> */}
-                      </LinearGradient>
-                    </ImageBackground>
-                    {props.clubLogo == null ||
-                    props.clubLogo === 'ul' ||
-                    props.clubLogo === '' ? (
-                      <View
-                        onPress={props.imageViewVisible2}
-                        style={[styles.logo, {backgroundColor: '#6190E8'}]}>
-                        <View
-                          style={[
-                            styles.logoImage,
-                            {backgroundColor: '#6190E8', width: 30, height: 30},
-                          ]}
-                        />
-                      </View>
-                    ) : (
-                      props.clubLogo && (
-                        <View
-                          onPress={props.imageViewVisible2}
-                          style={[styles.logo]}>
-                          <Thumbnail
-                            source={{uri: props.clubLogo}}
-                            style={styles.logoImage}
-                          />
-                        </View>
-                      )
-                    )}
-                    {props.clubKakao === '' ? (
-                      <></>
-                    ) : (
-                      <TouchableWithoutFeedback
-                        onPress={() => Linking.openURL(props.clubKakao)}>
-                        <Image
-                          style={{
-                            position: 'absolute',
-                            width: 45,
-                            height: 45,
-                            right: 4,
-                            bottom: 28,
-                          }}
-                          source={require('../../../images/kakaoLogo.png')}
-                        />
-                      </TouchableWithoutFeedback>
-                    )}
-                  </View>
-                )
-              )}
-              <View style={styles.slider}>
-                <SliderView {...props} textL={'소규모'} textR={'대규모'} />
-                <SliderView {...props} textL={'자율적인'} textR={'체계적인'} />
-                <SliderView {...props} textL={'재미있는'} textR={'진지한'} />
-                <SliderView {...props} textL={'친목도모'} textR={'활동중심'} />
-              </View>
-            </GestureRecognizer>
+              )
+            )}
+            <View style={styles.slider}>
+              <SliderView {...props} textL={'소규모'} textR={'대규모'} />
+              <SliderView {...props} textL={'자율적인'} textR={'체계적인'} />
+              <SliderView {...props} textL={'재미있는'} textR={'진지한'} />
+              <SliderView {...props} textL={'친목도모'} textR={'활동중심'} />
+            </View>
+            {/* </GestureRecognizer> */}
           </View>
 
           <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
@@ -239,6 +238,9 @@ const ClubIntroduce = props => (
 
           <Record {...props} />
         </Swiper>
+        <View
+          style={styles.backSwipe}
+        />
         <Menu
           style={{
             position: 'absolute',
@@ -435,6 +437,14 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(12.5),
     paddingVertical: 11,
     paddingHorizontal: 15,
+  },
+  backSwipe: {
+    position: 'absolute',
+    top: 100,
+    left: 0,
+    width: 100,
+    height: height,
+    zIndex: 10,
   },
 });
 

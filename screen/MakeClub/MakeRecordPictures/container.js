@@ -214,9 +214,9 @@ export default class RecordRegister extends React.Component {
 
 	_inputDatas = async (image, comment, createdAt, imageRoom) => {
 		const {navigation} = this.props;
-		const {imageWidth, imageHeight} = this.state;
 		var userNo = navigation.getParam('userNo', 'NO-ID');
 		let formData = new FormData();
+		comment = await comment.replace(/'/g, '`');
 		formData.append('image', {
 			uri: image,
 			name: 'image.jpeg',

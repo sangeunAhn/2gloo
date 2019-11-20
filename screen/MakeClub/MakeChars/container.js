@@ -117,6 +117,7 @@ class Container extends React.Component {
 
   _addChar = char => {
     const t = this;
+		char = char.replace(/'/g, '`');
     this.setState(prevState => {
       const ID = t.state.idCount.toString();
       const {count, idCount} = this.state;
