@@ -71,6 +71,8 @@ class CharInput extends Component {
             value={this.state.newChar}
             onChangeText={newChar => this.setState({newChar})}
             maxLength={9}
+            autoCapitalize={false}
+            autoCorrect={false}
           />
 
           <View style={styles.btnView}>

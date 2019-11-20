@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Dimensions, TouchableOpacity, SafeAreaView, Text, View, Platform} from 'react-native';
+import {
+	StyleSheet,
+	Dimensions,
+	TouchableWithoutFeedback,
+	TouchableOpacity,
+	SafeAreaView,
+	Text,
+	View,
+	Platform,
+	Linking,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import UpdateButton from '../../../components/Button/updateClubButton/UpdateButton';
 
@@ -34,7 +44,10 @@ const UpdateClub = props => (
 			<Text style={styles.screenTitle}>모임 수정</Text>
 		</View>
 		<TouchableOpacity style={styles.deleteClub} onPress={props.onPressDeleteClub}>
-			<Text>모임 삭제</Text>
+			<Text style={{color: '#8D8D8D'}}>모임 삭제</Text>
+		</TouchableOpacity>
+		<TouchableOpacity style={styles.apply} onPress={() => Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')}>
+			<Text style={{color: '#8D8D8D'}}>중앙동아리 신청</Text>
 		</TouchableOpacity>
 	</>
 );
@@ -109,10 +122,15 @@ const styles = StyleSheet.create({
 		height: height * 0.05,
 	},
 	deleteClub: {
-    position: 'absolute', 
-    left: 20, 
-    bottom: height * 0.1
+		position: 'absolute',
+		left: 20,
+		bottom: height * 0.1,
   },
+  apply: {
+    position: 'absolute',
+		left: 20,
+		bottom: height * 0.06,
+  }
 });
 
 export default UpdateClub;

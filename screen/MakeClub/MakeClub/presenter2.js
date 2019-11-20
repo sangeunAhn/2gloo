@@ -45,6 +45,8 @@ const MakeClub2 = props => (
     </View>
     <View style={styles.blank} />
     <View style={styles.blank} />
+
+    
     <Text style={styles.text1}>로고, 메인 사진</Text>
 
     <TouchableOpacity
@@ -125,6 +127,7 @@ const MakeClub2 = props => (
           maxLength={20}
           value={props.clubName}
           autoCorrect={false}
+          autoCapitalize={false}
         />
       </View>
       <View style={styles.block}>
@@ -233,6 +236,7 @@ const MakeClub2 = props => (
           maxLength={1000}
           autoCorrect={false}
           value={props.clubIntroduce}
+          autoCapitalize={false}
         />
       </View>
 
@@ -266,6 +270,7 @@ const MakeClub2 = props => (
           maxLength={1000}
           multiline={true}
           autoCorrect={false}
+          autoCapitalize={false}
         />
       </View>
       <View style={styles.block}>
@@ -280,6 +285,7 @@ const MakeClub2 = props => (
         </Text>
         <TextInput
           onFocus={props.handleFocus3}
+          autoCapitalize = 'none'
           onBlur={props.clubKakao.length == 0 ? props.handleBlur3 : null}
           style={[
             styles.input,
@@ -305,12 +311,13 @@ const MakeClub2 = props => (
             styles.text,
             {
               color: '#8d97a5',
-              fontSize: 15,
+              fontSize: 10,
             },
           ]}>
           ※ 'http://'를 넣어주세요.
         </Text>
       </View>
+      <Text style={{marginTop:10, textAlign:'center', fontSize:10}}>중앙동아리는 모임 가입 후 모임 수정페이지에서 동아리 신청을 해주시길 바랍니다.</Text>
     </View>
 
     

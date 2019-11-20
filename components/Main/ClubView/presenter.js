@@ -43,7 +43,7 @@ const ClubView = props => (
         props.clubMainPicture == '' ? (
           <View style={styles.mainPicture} />
         ) : (
-          <Image
+          <FastImage
             source={{uri: props.clubMainPicture}}
             style={styles.mainPicture}
           />
@@ -54,13 +54,13 @@ const ClubView = props => (
         bordered
         style={{borderBottomLeftRadius: 15, borderBottomRightRadius: 15}}>
         <Left>
-          {props.clubMainPicture === null ||
-          props.clubMainPicture === 'ul' ||
-          props.clubMainPicture == '' ? (
+          {props.clubLogo === null ||
+          props.clubLogo === 'ul' ||
+          props.clubLogo == '' ? (
             <View style={{width: 40, height: 40}} />
           ) : (
             <Thumbnail
-              style={{width: 40, height: 40}}
+              style={{width: 40, height: 40, elevation:5}}
               source={{uri: props.clubLogo}}
             />
           )}
@@ -72,7 +72,7 @@ const ClubView = props => (
             <Text style={{fontSize: 12}}>
               {' '}
               {props.clubChar.map((char, i) => {
-                return <ClubChars chars={char} key={i} />;
+                return <ClubChars color={'#8D8D8D'}chars={char} key={i} />;
               })}
             </Text>
           </Body>
@@ -81,80 +81,6 @@ const ClubView = props => (
     </Card>
   </TouchableWithoutFeedback>
 
-  // <View style={styles.container}>
-  //   <View style={styles.clubViewTop}>
-  //     <View elevation={5} style={styles.logo}>
-  //       {props.clubLogo === null || props.clubLogo == '' ? (
-  //         <View style={styles.Image} backgroundColor={'#ADCDE9'} />
-  //       ) : (
-  //         <FastImage style={styles.Image} source={{uri: props.clubLogo}} />
-  //       )}
-  //     </View>
-
-  //     <View style={styles.club}>
-  //       <Text style={styles.clubTitle}>{props.clubName}</Text>
-  //       <Text style={styles.clubChar}>
-  //         {props.clubChar.map((char, i) => {
-  //           return <ClubChars chars={char} key={i} />;
-  //         })}
-  //       </Text>
-  //     </View>
-  //   </View>
-
-  //   <View style={styles.shadow}>
-  //     <TouchableOpacity onPress={props.press}>
-  //       {props.clubMainPicture === null ||
-  //       props.clubMainPicture === 'ul' ||
-  //       props.clubMainPicture == '' ? (
-  //         props.disabled == true ? (
-  //           <View style={styles.picture} />
-  //         ) : (
-  //           <>
-  //             {props.clubLogo === null ||
-  //             props.clubLogo === 'ul' ||
-  //             props.clubLogo == '' ? (
-  //               <TouchMainPicture
-  //                 gotoClubIntroduce={props.gotoClubIntroduce}
-  //                 gotoRecord={props.gotoRecord}
-  //                 clubMainPicture={null}
-  //                 clubLogo={null}
-  //               />
-  //             ) : (
-  //               <TouchMainPicture
-  //                 gotoClubIntroduce={props.gotoClubIntroduce}
-  //                 gotoRecord={props.gotoRecord}
-  //                 clubMainPicture={null}
-  //                 clubLogo={props.clubLogo}
-  //               />
-  //             )}
-  //           </>
-  //         )
-  //       ) : (
-  //         <>
-  //           {props.clubLogo === null ||
-  //           props.clubLogo === 'ul' ||
-  //           props.clubLogo == '' ? (
-  //             <TouchMainPicture
-  //               gotoClubIntroduce={props.gotoClubIntroduce}
-  //               gotoRecord={props.gotoRecord}
-  //               clubMainPicture={props.clubMainPicture}
-  //               clubLogo={null}
-  //               disabled={props.disabled}
-  //             />
-  //           ) : (
-  //             <TouchMainPicture
-  //               gotoClubIntroduce={props.gotoClubIntroduce}
-  //               gotoRecord={props.gotoRecord}
-  //               clubMainPicture={props.clubMainPicture}
-  //               clubLogo={props.clubLogo}
-  //               disabled={props.disabled}
-  //             />
-  //           )}
-  //         </>
-  //       )}
-  //     </TouchableOpacity>
-  //   </View>
-  // </View>
 );
 
 const styles = StyleSheet.create({
