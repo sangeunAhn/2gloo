@@ -7,6 +7,7 @@ import {
   Platform,
   ActivityIndicator,
   SafeAreaView,
+  Linking,
 } from 'react-native';
 import BackButton2 from '../Button/BackButton2';
 import MasonryView from '..//Photo/MasonryList';
@@ -39,42 +40,42 @@ export default class Pictures extends React.Component {
             <BackButton2 navigation={this.props.navigation} />
             {/*  */}
             <Menu
-          style={{
-            position: 'absolute',
-            right: 2,
-            top: Platform.OS === 'ios' ? 35 : 20,
-            zIndex: 1,
-            // backgroundColor: 'red',
-          }}>
-          <MenuTrigger
-            style={{
-              paddingVertia: 5,
-              paddingHorizontal: 10,
-            }}>
-            <SafeAreaView>
-              <Icon name="dots-three-horizontal" size={20} />
-            </SafeAreaView>
-          </MenuTrigger>
-          <MenuOptions
-            optionsContainerStyle={{
-              paddingLeft: 10,
-              marginTop: 20,
-              borderRadius: 10,
-              width: 130,
-              height: 40,
-              justifyContent: 'space-around',
-            }}>
-            <MenuOption
-              value={2}
-              style={{marginTop: 3}}
-              onSelect={() =>
-                Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
-              }
-              text="신고하기"
-            />
-          </MenuOptions>
-        </Menu>
-        {/*  */}
+              style={{
+                position: 'absolute',
+                right: 2,
+                top: Platform.OS === 'ios' ? 35 : 20,
+                zIndex: 1,
+                // backgroundColor: 'red',
+              }}>
+              <MenuTrigger
+                style={{
+                  paddingVertia: 5,
+                  paddingHorizontal: 10,
+                }}>
+                <SafeAreaView>
+                  <Icon name="dots-three-horizontal" size={20} />
+                </SafeAreaView>
+              </MenuTrigger>
+              <MenuOptions
+                optionsContainerStyle={{
+                  paddingLeft: 10,
+                  marginTop: 20,
+                  borderRadius: 10,
+                  width: 130,
+                  height: 40,
+                  justifyContent: 'space-around',
+                }}>
+                <MenuOption
+                  value={2}
+                  style={{marginTop: 3}}
+                  onSelect={() =>
+                    Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
+                  }
+                  text="신고하기"
+                />
+              </MenuOptions>
+            </Menu>
+            {/*  */}
             <View style={styles.container}>
               <HeaderScrollView
                 containerStyle={{backgroundColor: '#FAFAFA'}}

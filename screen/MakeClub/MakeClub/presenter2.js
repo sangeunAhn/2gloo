@@ -314,7 +314,7 @@ const MakeClub2 = props => (
               fontSize: 10,
             },
           ]}>
-          ※ 'http://'를 넣어주세요.
+          ※ 'https://'를 넣어주세요.
         </Text>
       </View>
       <Text style={{marginTop:10, textAlign:'center', fontSize:10}}>중앙동아리는 모임 가입 후 모임 수정페이지에서 동아리 신청을 해주시길 바랍니다.</Text>
