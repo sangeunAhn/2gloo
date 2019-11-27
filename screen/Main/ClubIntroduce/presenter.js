@@ -17,7 +17,7 @@ import Swiper from 'react-native-swiper';
 import {Thumbnail, Text} from 'native-base';
 import ClubChars from '../../../components/Char/ClubChars';
 import SliderView from '../../../components/Introduce/Slider';
-import BackButton from '../../../components/Button/BackButton';
+import BackButton2 from '../../../components/Button/BackButton2';
 import BackButtonW from '../../../components/Button/BackButtonW';
 import Record from '../../../components/Introduce/Record';
 import LinearGradient from 'react-native-linear-gradient';
@@ -41,55 +41,50 @@ const ClubIntroduce = props => (
           paginationStyle={{bottom: Platform.OS === 'ios' ? 15 : 10}}
           loop={false}>
           <View style={styles.container}>
-            {/* <GestureRecognizer
-              onSwipeRight={props.onSwipeRight}
-              config={{
-                velocityThreshold: 0.3,
-                directionalOffsetThreshold: 80,
-              }}
-              style={{
-                flex: 1,
-              }}> */}
             <StatusBar translucent={true} />
             <BackButtonW navigation={props.navigation} />
             {/*  */}
             <Menu
-          style={{
-            position: 'absolute',
-            right: 2,
-            top: Platform.OS === 'ios' ? 35 : 20,
-            zIndex: 1,
-            // backgroundColor: 'red',
-          }}>
-          <MenuTrigger
-            style={{
-              paddingVertia: 5,
-              paddingHorizontal: 10,
-            }}>
-            <SafeAreaView>
-              <Icon name="dots-three-horizontal" size={20} color={'white'} />
-            </SafeAreaView>
-          </MenuTrigger>
-          <MenuOptions
-            optionsContainerStyle={{
-              paddingLeft: 10,
-              marginTop: 20,
-              borderRadius: 10,
-              width: 130,
-              height: 40,
-              justifyContent: 'space-around',
-            }}>
-            <MenuOption
-              value={2}
-              style={{marginTop: 3}}
-              onSelect={() =>
-                Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
-              }
-              text="신고하기"
-            />
-          </MenuOptions>
-        </Menu>
-        {/*  */}
+              style={{
+                position: 'absolute',
+                right: 2,
+                top: Platform.OS === 'ios' ? 35 : 20,
+                zIndex: 1,
+                // backgroundColor: 'red',
+              }}>
+              <MenuTrigger
+                style={{
+                  paddingVertia: 5,
+                  paddingHorizontal: 10,
+                }}>
+                <SafeAreaView>
+                  <Icon
+                    name="dots-three-horizontal"
+                    size={20}
+                    color={'white'}
+                  />
+                </SafeAreaView>
+              </MenuTrigger>
+              <MenuOptions
+                optionsContainerStyle={{
+                  paddingLeft: 10,
+                  marginTop: 20,
+                  borderRadius: 10,
+                  width: 130,
+                  height: 40,
+                  justifyContent: 'space-around',
+                }}>
+                <MenuOption
+                  value={2}
+                  style={{marginTop: 3}}
+                  onSelect={() =>
+                    Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
+                  }
+                  text="신고하기"
+                />
+              </MenuOptions>
+            </Menu>
+            {/*  */}
             {props.clubMainPicture == null ||
             props.clubMainPicture === 'ul' ||
             props.clubMainPicture === '' ? (
@@ -258,46 +253,46 @@ const ClubIntroduce = props => (
             {/* </GestureRecognizer> */}
           </View>
 
-          <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
-            <BackButton navigation={props.navigation} />
+          <View style={styles.container}>
+            <BackButton2 navigation={props.navigation} />
             {/*  */}
             <Menu
-          style={{
-            position: 'absolute',
-            right: 2,
-            top: Platform.OS === 'ios' ? 35 : 20,
-            zIndex: 1,
-            // backgroundColor: 'red',
-          }}>
-          <MenuTrigger
-            style={{
-              paddingVertia: 5,
-              paddingHorizontal: 10,
-            }}>
-            <SafeAreaView>
-              <Icon name="dots-three-horizontal" size={20} />
-            </SafeAreaView>
-          </MenuTrigger>
-          <MenuOptions
-            optionsContainerStyle={{
-              paddingLeft: 10,
-              marginTop: 20,
-              borderRadius: 10,
-              width: 130,
-              height: 40,
-              justifyContent: 'space-around',
-            }}>
-            <MenuOption
-              value={2}
-              style={{marginTop: 3}}
-              onSelect={() =>
-                Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
-              }
-              text="신고하기"
-            />
-          </MenuOptions>
-        </Menu>
-        {/*  */}
+              style={{
+                position: 'absolute',
+                right: 2,
+                top: Platform.OS === 'ios' ? 35 : 20,
+                zIndex: 1,
+                // backgroundColor: 'red',
+              }}>
+              <MenuTrigger
+                style={{
+                  paddingVertia: 5,
+                  paddingHorizontal: 10,
+                }}>
+                <SafeAreaView>
+                  <Icon name="dots-three-horizontal" size={20} />
+                </SafeAreaView>
+              </MenuTrigger>
+              <MenuOptions
+                optionsContainerStyle={{
+                  paddingLeft: 10,
+                  marginTop: 20,
+                  borderRadius: 10,
+                  width: 130,
+                  height: 40,
+                  justifyContent: 'space-around',
+                }}>
+                <MenuOption
+                  value={2}
+                  style={{marginTop: 3}}
+                  onSelect={() =>
+                    Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')
+                  }
+                  text="신고하기"
+                />
+              </MenuOptions>
+            </Menu>
+            {/*  */}
             <View style={styles.intro}>
               <ScrollView style={styles.introBox} nestedScrollEnabled={true}>
                 <Text style={styles.introduceTitle}>Introduce</Text>
@@ -314,10 +309,7 @@ const ClubIntroduce = props => (
 
           <Record {...props} />
         </Swiper>
-        <View
-          style={styles.backSwipe}
-        />
-        
+        <View style={styles.backSwipe} />
       </>
     ) : (
       <ActivityIndicator size="large" style={styles.activityIndicator} />
@@ -403,7 +395,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     elevation: 10,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },

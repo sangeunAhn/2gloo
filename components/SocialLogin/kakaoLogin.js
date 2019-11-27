@@ -88,6 +88,20 @@ export default function App(props) {
     }
   };
 
+
+  const _existId = id => {
+    axios
+      .post('http://13.209.221.206/php/Login/ExistId.php', {
+        id: 'kakao' + id,
+      })
+      .then(function(response) {
+        var ms = response.data.message;
+        {
+          ms === 'true' ? _existSchool('kakao' + id) : _makeUser('kakao' + id);
+        }
+      });
+  };
+
   const _makeUser = async id => {
     let formData = new FormData();
     formData.append('id', id);
@@ -106,24 +120,32 @@ export default function App(props) {
     });
   };
 
+  const _existSchool = id => {
+    axios
+    .post('http://13.209.221.206/php/Login/ExistSchool.php', {
+      id,
+    })
+    .then(function(response) {
+      var ms = response.data.school;
+      console.log(ms)
+      {
+        ms === null ? _gotoRegisterSchool(id) : _gotoSchool(id)
+      }
+    });
+  }
+
   const _gotoSchool = id => {
     props.navigation.navigate('Schools', {
       userId: id,
     });
   };
 
-  const _existId = id => {
-    axios
-      .post('http://13.209.221.206/php/Login/ExistId.php', {
-        id: 'kakao' + id,
-      })
-      .then(function(response) {
-        var ms = response.data.message;
-        {
-          ms === 'true' ? _gotoSchool('kakao' + id) : _makeUser('kakao' + id);
-        }
-      });
-  };
+  const _gotoRegisterSchool = id => {
+    props.navigation.navigate('RegisterSchool', {
+      userId: id,
+    });
+  }
+
 
   return (
     <TouchableOpacity

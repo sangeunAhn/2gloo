@@ -1,6 +1,6 @@
 {
   "name": "igloo",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/iglooApp/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",

@@ -50,15 +50,37 @@ export default class MasonryList extends React.Component {
           id: 'fb' + result.id,
         })
         .then(function(response) {
-          var ms = response.data.message;
+          var ms = response.data.school;
+          console.log(ms)
           {
-            ms === 'true'
-              ? t._gotoSchool('fb' + result.id)
+            ms === 'null'
+              ? t._existSchool('fb' + result.id)
               : t._makeUser('fb' + result.id);
           }
         });
     }
   };
+
+  _existSchool = id => {
+    const t = this;
+    axios
+      .post('http://13.209.221.206/php/Login/ExistSchool.php', {
+        id,
+      })
+      .then(function(response) {
+        var ms = response.data.school;
+        console.log(ms);
+        {
+          ms === null ? t._gotoRegisterSchool(id) : t._gotoSchool(id);
+        }
+      });
+  };
+
+  _gotoRegisterSchool = id => {
+    this.props.navigation.navigate('RegisterSchool', {
+      userId: id,
+    });
+  }
 
   _storeData = id => {
     try {
