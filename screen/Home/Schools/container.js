@@ -21,15 +21,15 @@ class Container extends React.Component {
     this._getUserData();
   };
 
-  // componentDidMount() {
-  //   BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
-  // }
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
 
-  // // // 이벤트 해제
-  // componentWillUnmount() {
-  //   this.exitApp = false;
-  //   BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
-  // }
+  // // 이벤트 해제
+  componentWillUnmount() {
+    this.exitApp = false;
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+  }
   // 이벤트 동작
   handleBackButton = () => {
     // 2000(2초) 안에 back 버튼을 한번 더 클릭 할 경우 앱 종료
