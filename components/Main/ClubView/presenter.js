@@ -57,7 +57,7 @@ const ClubView = props => (
           {props.clubLogo === null ||
           props.clubLogo === 'ul' ||
           props.clubLogo == '' ? (
-            <View style={{width: 40, height: 40}} />
+            <View style={{width: 40, height: 40, borderRadius: 20, backgroundColor: '#ADCDE9'}} />
           ) : (
             <Thumbnail
               style={{width: 40, height: 40, elevation:5}}
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     height: 180,
     width: null,
     flex: 1,
+    backgroundColor: '#CEE1F2'
   },
 });
 

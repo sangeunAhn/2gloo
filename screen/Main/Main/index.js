@@ -160,7 +160,7 @@ export default class Main extends Component {
 								{this.state.existClub === '생성' ? (
 									<MenuOption value={1} onSelect={this._goToCreateClub} text="모임 생성" />
 								) : (
-									<MenuOption value={1} onSelect={this._goToUpdateClub} text="모임 수정" />
+									<MenuOption value={1} onSelect={this._goToUpdateClub} text="모임 수정/삭제" />
 								)}
 								<MenuOption
 									value={2}

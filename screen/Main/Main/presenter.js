@@ -52,7 +52,7 @@ const ClubRecordPictures = props => (
               <MenuOption
                 value={1}
                 onSelect={props.goToUpdateClub}
-                text="모임 수정"
+                text="모임 삭제"
               />
             )}
             <MenuOption

@@ -88,19 +88,18 @@ const ClubIntroduce = props => (
             {props.clubMainPicture == null ||
             props.clubMainPicture === 'ul' ||
             props.clubMainPicture === '' ? (
-              <View style={[styles.mainPicture, {backgroundColor: '#A7BFE8'}]}>
+              <View style={[styles.mainPicture, {backgroundColor: '#ADCDE9'}]}>
                 <ImageBackground
                   // blurRadius={2}
                   // source={{uri: props.clubMainPicture}}
                   style={styles.mainPicture}>
-                  <LinearGradient
+                  {/* <LinearGradient
                     colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
                     style={{
                       width: width,
-                      height: height * 0.3,
+                      height: height * 0.4,
                       justifyContent: 'flex-end',
-                    }}>
-                    {/* <View opacity={0.5} style={{height:height*0.3, justifyContent:'flex-end', backgroundColor:'red'}}> */}
+                    }}> */}
                     <View style={{marginLeft: 15, marginBottom: 14}}>
                       <Text style={styles.clubName}>{props.clubName}</Text>
                       <Text note style={styles.charText}>
@@ -117,21 +116,14 @@ const ClubIntroduce = props => (
                         })}
                       </Text>
                     </View>
-                    {/* </View> */}
-                  </LinearGradient>
+                  {/* </LinearGradient> */}
                 </ImageBackground>
                 {props.clubLogo == null ||
                 props.clubLogo === 'ul' ||
                 props.clubLogo === '' ? (
                   <View
                     onPress={props.imageViewVisible2}
-                    style={[styles.logo, {backgroundColor: '#6190E8'}]}>
-                    <View
-                      style={[
-                        styles.logoImage,
-                        {backgroundColor: '#6190E8', width: 30, height: 30},
-                      ]}
-                    />
+                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]}>
                   </View>
                 ) : (
                   props.clubLogo && (

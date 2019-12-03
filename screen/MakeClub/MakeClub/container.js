@@ -180,7 +180,15 @@ class Container extends Component {
 		this.setState({photoPermission: response});
 
 		ImagePicker.launchImageLibrary(options, response => {
-			this._addLogo(response.uri);
+			if (response.didCancel) {
+				console.log('User cancelled image picker');
+			  } else if (response.error) {
+				console.log('ImagePicker Error: ', response.error);
+			  } else if (response.customButton) {
+				console.log('User tapped custom button: ', response.customButton);
+			  } else {
+				this._addLogo(response.uri);
+			  }
 		});
 	};
 
@@ -206,7 +214,15 @@ class Container extends Component {
 		this.setState({photoPermission: response});
 
 		ImagePicker.launchImageLibrary(options, response => {
-			this._addMainPicture(response.uri);
+			if (response.didCancel) {
+				console.log('User cancelled image picker');
+			  } else if (response.error) {
+				console.log('ImagePicker Error: ', response.error);
+			  } else if (response.customButton) {
+				console.log('User tapped custom button: ', response.customButton);
+			  } else {
+				this._addMainPicture(response.uri);
+			  }
 		});
 	};
 

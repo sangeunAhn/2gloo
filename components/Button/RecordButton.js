@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Text, StyleSheet, Dimensions} from 'react-native';
+import {TouchableWithoutFeedback, Text, StyleSheet, Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const {width, height} = Dimensions.get('window');
@@ -11,11 +11,11 @@ export default class RecordTrue extends Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={this.props.onPress}>
+      <TouchableWithoutFeedback onPress={this.props.onPress}>
         <LinearGradient colors={['#CBDFF1', '#8DB5D6']} style={styles.button}>
           <Text style={styles.title}>완료</Text>
         </LinearGradient>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }
