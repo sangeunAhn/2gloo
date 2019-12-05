@@ -50,10 +50,10 @@ export default class MasonryList extends React.Component {
           id: 'fb' + result.id,
         })
         .then(function(response) {
-          var ms = response.data.school;
+          var ms = response.data.message;
           console.log(ms)
           {
-            ms === 'null'
+            ms === 'true'
               ? t._existSchool('fb' + result.id)
               : t._makeUser('fb' + result.id);
           }

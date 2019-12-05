@@ -5,7 +5,7 @@ import {ToastAndroid, BackHandler} from 'react-native';
 
 class Container extends React.Component {
   static navigationOptions = {
-    gesturesEnabled: false,
+    // gesturesEnabled: false,
     header: null,
   };
 

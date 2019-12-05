@@ -12,6 +12,7 @@ import {
   Image,
   TouchableWithoutFeedback,
   Linking,
+  TouchableOpacity,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import {Thumbnail, Text} from 'native-base';
@@ -22,7 +23,6 @@ import BackButtonW from '../../../components/Button/BackButtonW';
 import Record from '../../../components/Introduce/Record';
 import LinearGradient from 'react-native-linear-gradient';
 import {moderateScale} from '../../../components/Scaling';
-import GestureRecognizer from 'react-native-swipe-gestures';
 import Icon from 'react-native-vector-icons/Entypo';
 import {
   Menu,
@@ -90,32 +90,23 @@ const ClubIntroduce = props => (
             props.clubMainPicture === '' ? (
               <View style={[styles.mainPicture, {backgroundColor: '#ADCDE9'}]}>
                 <ImageBackground
-                  // blurRadius={2}
-                  // source={{uri: props.clubMainPicture}}
                   style={styles.mainPicture}>
-                  {/* <LinearGradient
-                    colors={['rgba(128, 128, 128, 0)', 'rgba(0, 0, 0, 1)']}
-                    style={{
-                      width: width,
-                      height: height * 0.4,
-                      justifyContent: 'flex-end',
-                    }}> */}
-                    <View style={{marginLeft: 15, marginBottom: 14}}>
-                      <Text style={styles.clubName}>{props.clubName}</Text>
-                      <Text note style={styles.charText}>
-                        {' '}
-                        {props.clubChar.map((char, i) => {
-                          return (
-                            <ClubChars
-                              color={'white'}
-                              fontSize={13}
-                              chars={char}
-                              key={i}
-                            />
-                          );
-                        })}
-                      </Text>
-                    </View>
+                  <View style={{marginLeft: 15, marginBottom: 14}}>
+                    <Text style={styles.clubName}>{props.clubName}</Text>
+                    <Text note style={styles.charText}>
+                      {' '}
+                      {props.clubChar.map((char, i) => {
+                        return (
+                          <ClubChars
+                            color={'white'}
+                            fontSize={13}
+                            chars={char}
+                            key={i}
+                          />
+                        );
+                      })}
+                    </Text>
+                  </View>
                   {/* </LinearGradient> */}
                 </ImageBackground>
                 {props.clubLogo == null ||
@@ -123,8 +114,7 @@ const ClubIntroduce = props => (
                 props.clubLogo === '' ? (
                   <View
                     onPress={props.imageViewVisible2}
-                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]}>
-                  </View>
+                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]} />
                 ) : (
                   props.clubLogo && (
                     <View
@@ -140,19 +130,25 @@ const ClubIntroduce = props => (
                 {props.clubKakao === '' ? (
                   <></>
                 ) : (
-                  <TouchableWithoutFeedback
-                    onPress={() => Linking.openURL(props.clubKakao)}>
-                    <Image
+                  <View
                       style={{
                         position: 'absolute',
-                        width: 45,
-                        height: 45,
+                        width: 55,
+                        height: 55,
                         right: 4,
                         bottom: 28,
-                      }}
-                      source={require('../../../images/kakaoLogo.png')}
-                    />
-                  </TouchableWithoutFeedback>
+                      }}>
+                      <TouchableOpacity
+                        onPress={() => Linking.openURL(props.clubKakao)}>
+                        <Image
+                          style={{
+                            width: 45,
+                            height: 45,
+                          }}
+                          source={require('../../../images/kakaoLogo.png')}
+                        />
+                      </TouchableOpacity>
+                    </View>
                 )}
               </View>
             ) : (
@@ -195,15 +191,8 @@ const ClubIntroduce = props => (
                   props.clubLogo === 'ul' ||
                   props.clubLogo === '' ? (
                     <View
-                      onPress={props.imageViewVisible2}
-                      style={[styles.logo, {backgroundColor: '#6190E8'}]}>
-                      <View
-                        style={[
-                          styles.logoImage,
-                          {backgroundColor: '#6190E8', width: 30, height: 30},
-                        ]}
-                      />
-                    </View>
+                    onPress={props.imageViewVisible2}
+                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]} />
                   ) : (
                     props.clubLogo && (
                       <View
@@ -219,19 +208,25 @@ const ClubIntroduce = props => (
                   {props.clubKakao === '' ? (
                     <></>
                   ) : (
-                    <TouchableWithoutFeedback
-                      onPress={() => Linking.openURL(props.clubKakao)}>
-                      <Image
-                        style={{
-                          position: 'absolute',
-                          width: 45,
-                          height: 45,
-                          right: 4,
-                          bottom: 28,
-                        }}
-                        source={require('../../../images/kakaoLogo.png')}
-                      />
-                    </TouchableWithoutFeedback>
+                    <View
+                      style={{
+                        position: 'absolute',
+                        width: 55,
+                        height: 55,
+                        right: 4,
+                        bottom: 28,
+                      }}>
+                      <TouchableOpacity
+                        onPress={() => Linking.openURL(props.clubKakao)}>
+                        <Image
+                          style={{
+                            width: 45,
+                            height: 45,
+                          }}
+                          source={require('../../../images/kakaoLogo.png')}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   )}
                 </View>
               )

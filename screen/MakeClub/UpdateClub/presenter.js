@@ -47,7 +47,7 @@ const UpdateClub = props => (
 			<Text style={{color: '#8D8D8D'}}>모임 삭제</Text>
 		</TouchableOpacity>
 		<TouchableOpacity style={styles.apply} onPress={() => Linking.openURL('http://pf.kakao.com/_PJcxkT/chat')}>
-			<Text style={{color: '#8D8D8D'}}>중앙동아리 신청</Text>
+			<Text style={{color: '#8D8D8D'}}>중앙동아리 인증</Text>
 		</TouchableOpacity>
 	</>
 );

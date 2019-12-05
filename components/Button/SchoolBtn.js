@@ -48,14 +48,14 @@ export default class ConfirmButton extends Component {
             <Text style={styles.titleText}>{this.props.school}</Text>
           </View>
           <View style={styles.address}>
-            {this.props.school === '상언대학교' ? (
+            {/* {this.props.school === '상언대학교' ? (
               <Text style={styles.addressText}>{'울산광역시 \n남구'}</Text>
             ) : this.props.school === '강민대학교' ? (
               <Text style={styles.addressText}>{'부산광역시 \n북구'}</Text>
             ) : (
-              <Text style={styles.addressText}>{'울산광역시 \n동구'}</Text>
-            )}
-            {/* <Text style={styles.addressText}>{'울산광역시 \n남구'}</Text> */}
+              <Text style={styles.addressText}>{'울산광역시 \n남구'}</Text>
+            )} */}
+            <Text style={styles.addressText}>{'울산광역시 \n남구'}</Text>
           </View>
           <View style={[styles.symbolLine, {borderColor: 'green'}]} />
         </TouchableOpacity>

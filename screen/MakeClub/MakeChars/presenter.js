@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   View,
   TouchableWithoutFeedback,
+  ScrollView
 } from 'react-native';
 import ConfirmButton from '../../../components/Button/ConfirmButton';
 import ConfirmButtonN from '../../../components/Button/ConfirmButtonN';
@@ -29,9 +30,6 @@ const MakeChars = props => (
           style={styles.backBtn}
           onPress={() => {
             props.navigation.goBack();
-            // props.navigation.getParam('from', 'NO-ID') == 'm'
-            // 	? props.navigation.goBack()
-            // 	: props.navigation.navigate('Login');
           }}>
           <SafeAreaView>
             <Ionicons name="ios-arrow-back" size={width * 0.08} color="black" />
@@ -180,6 +178,7 @@ const MakeChars = props => (
                 </View>
               </>
             ) : (
+              <ScrollView style={{flex:1}}>
               <View style={styles.chars}>
                 {Object.values(props.chars).map(data => (
                   <Char
@@ -191,6 +190,7 @@ const MakeChars = props => (
                   />
                 ))}
               </View>
+              </ScrollView>
             )}
           </View>
           <View style={{height: 80}} />

@@ -95,12 +95,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 20,
     marginBottom: height * 0.03,
+    height: 50,
+    // backgroundColor: 'red',
   },
   input: {
-    height: height * 0.07,
+    height: 50,
     flex: 3,
     padding: 10,
-
+    color: 'black',
     borderBottomWidth: 1,
     fontSize: width * 0.05,
     marginRight: 15,
@@ -112,11 +114,11 @@ const styles = StyleSheet.create({
   shapText1: {
     fontSize: width * 0.05,
     color: '#DCDCDC',
-    top: -height*0.021,
+    top: -13,
   },
   shapText2: {
     fontSize: width * 0.05,
-    top: -height*0.021,
+    top: -13,
   },
   addBtn: {
     zIndex: 999,
