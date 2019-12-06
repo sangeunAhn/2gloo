@@ -169,7 +169,7 @@ class Container extends Component {
 	_pickLogo = async () => {
 		const options = {
 			title: 'Select Avatar',
-			},
+			customButtons: [{name: 'fb', title: 'Choose Photo from Facebook'}],
 			quality: 0.7,
 		};
 
