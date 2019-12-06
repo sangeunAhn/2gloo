@@ -169,9 +169,6 @@ class Container extends Component {
 	_pickLogo = async () => {
 		const options = {
 			title: 'Select Avatar',
-			storageOptions: {
-				skipBackup: true,
-				path: 'images',
 			},
 			quality: 0.7,
 		};
@@ -203,10 +200,6 @@ class Container extends Component {
 		const options = {
 			title: 'Select Avatar',
 			customButtons: [{name: 'fb', title: 'Choose Photo from Facebook'}],
-			storageOptions: {
-				skipBackup: true,
-				path: 'images',
-			},
 			quality: 0.7,
 		};
 

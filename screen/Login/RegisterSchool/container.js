@@ -33,13 +33,13 @@ class Container extends React.Component {
       '',
       [
         {
-          text: '예',
-          onPress: () => this._RegisterSchool('울산대학교'),
+          text: '아니요',
+          onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
         {
-          text: '아니요',
-          onPress: () => console.log('Cancel Pressed'),
+          text: '네',
+          onPress: () => this._RegisterSchool('울산대학교'),
         },
       ],
       {cancelable: false},

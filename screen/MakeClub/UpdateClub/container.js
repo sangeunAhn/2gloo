@@ -65,10 +65,10 @@ export default class ClubModify extends React.Component {
 			'',
 			[
 				{
-					text: '네',
-					onPress: () => this._deleteClub(),
+					text: '아니요',
+					onPress: () => console.log('OK Pressed'),
 				},
-				{text: '아니요', onPress: () => console.log('OK Pressed')},
+				{text: '네', onPress: () => () => this._deleteClub()},
 			],
 			{cancelable: false},
 		);
