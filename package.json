@@ -46,6 +46,7 @@
     "react-native-masonry": "^0.5.0-alpha.5",
     "react-native-masonry-list": "^2.13.0",
     "react-native-material-textfield": "^0.12.0",
+    "react-native-modal": "^11.5.3",
     "react-native-pages": "^0.7.0",
     "react-native-pathjs-charts": "^0.0.34",
     "react-native-permissions": "^1.2.0",

@@ -135,7 +135,7 @@ const ClubRecordPictures = props => (
       closeOnTouchOutside={true}
       modalStyle={styles.modal}>
       <View style={{marginTop: 10, marginBottom: 15, marginLeft: 10}}>
-        <Text style={{fontWeight: 'bold', fontSize: 20}}>문의사항</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>무엇이든 문의 해주세요 :)</Text>
       </View>
       <View style={{alignItems: 'center', marginTop: 15, marginBottom: 40}}>
         <Text
