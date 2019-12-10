@@ -89,8 +89,7 @@ const ClubIntroduce = props => (
             props.clubMainPicture === 'ul' ||
             props.clubMainPicture === '' ? (
               <View style={[styles.mainPicture, {backgroundColor: '#ADCDE9'}]}>
-                <ImageBackground
-                  style={styles.mainPicture}>
+                <ImageBackground style={styles.mainPicture}>
                   <View style={{marginLeft: 15, marginBottom: 14}}>
                     <Text style={styles.clubName}>{props.clubName}</Text>
                     <Text note style={styles.charText}>
@@ -114,7 +113,8 @@ const ClubIntroduce = props => (
                 props.clubLogo === '' ? (
                   <View
                     onPress={props.imageViewVisible2}
-                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]} />
+                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]}
+                  />
                 ) : (
                   props.clubLogo && (
                     <View
@@ -131,24 +131,29 @@ const ClubIntroduce = props => (
                   <></>
                 ) : (
                   <View
+                    style={{
+                      position: 'absolute',
+                      width: 60,
+                      height: 60,
+                      right: 4,
+                      bottom: 28,
+                    }}>
+                    <TouchableOpacity
                       style={{
-                        position: 'absolute',
-                        width: 55,
-                        height: 55,
-                        right: 4,
-                        bottom: 28,
-                      }}>
-                      <TouchableOpacity
-                        onPress={() => Linking.openURL(props.clubKakao)}>
-                        <Image
-                          style={{
-                            width: 45,
-                            height: 45,
-                          }}
-                          source={require('../../../images/kakaoLogo.png')}
-                        />
-                      </TouchableOpacity>
-                    </View>
+                        flex:1,
+                        justifyContent: 'flex-end',
+                        alignItems: 'flex-end',
+                      }}
+                      onPress={() => Linking.openURL(props.clubKakao)}>
+                      <Image
+                        style={{
+                          width: 45,
+                          height: 45,
+                        }}
+                        source={require('../../../images/kakaoLogo.png')}
+                      />
+                    </TouchableOpacity>
+                  </View>
                 )}
               </View>
             ) : (
@@ -191,8 +196,9 @@ const ClubIntroduce = props => (
                   props.clubLogo === 'ul' ||
                   props.clubLogo === '' ? (
                     <View
-                    onPress={props.imageViewVisible2}
-                    style={[styles.logo, {backgroundColor: '#CEE1F2'}]} />
+                      onPress={props.imageViewVisible2}
+                      style={[styles.logo, {backgroundColor: '#CEE1F2'}]}
+                    />
                   ) : (
                     props.clubLogo && (
                       <View
@@ -211,12 +217,17 @@ const ClubIntroduce = props => (
                     <View
                       style={{
                         position: 'absolute',
-                        width: 55,
-                        height: 55,
+                        width: 60,
+                        height: 60,
                         right: 4,
                         bottom: 28,
                       }}>
                       <TouchableOpacity
+                        style={{
+                          flex:1,
+                          justifyContent: 'flex-end',
+                          alignItems: 'flex-end',
+                        }}
                         onPress={() => Linking.openURL(props.clubKakao)}>
                         <Image
                           style={{
