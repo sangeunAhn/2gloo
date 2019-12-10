@@ -6,7 +6,7 @@ import {
   Image,
   Platform,
   Dimensions,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from 'react-native';
 import ClubChars from '../../Char/ClubChars';
 import {moderateScale} from '../../Scaling';
@@ -57,12 +57,21 @@ const ClubView = props => (
           {props.clubLogo === null ||
           props.clubLogo === 'ul' ||
           props.clubLogo == '' ? (
-            <View style={{width: 40, height: 40, borderRadius: 20, backgroundColor: '#ADCDE9'}} />
-          ) : (
-            <Thumbnail
-              style={{width: 40, height: 40, elevation:5}}
-              source={{uri: props.clubLogo}}
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+                backgroundColor: '#ADCDE9',
+              }}
             />
+          ) : (
+            <View style={{elevation: 5}}>
+              <Thumbnail
+                style={{width: 40, height: 40}}
+                source={{uri: props.clubLogo}}
+              />
+            </View>
           )}
 
           <Body style={{flexWrap: 'nowrap'}}>
@@ -72,7 +81,7 @@ const ClubView = props => (
             <Text style={{fontSize: 12}}>
               {' '}
               {props.clubChar.map((char, i) => {
-                return <ClubChars color={'#8D8D8D'}chars={char} key={i} />;
+                return <ClubChars color={'#8D8D8D'} chars={char} key={i} />;
               })}
             </Text>
           </Body>
@@ -80,7 +89,6 @@ const ClubView = props => (
       </CardItem>
     </Card>
   </TouchableWithoutFeedback>
-
 );
 
 const styles = StyleSheet.create({
@@ -187,7 +195,7 @@ const styles = StyleSheet.create({
     height: 180,
     width: null,
     flex: 1,
-    backgroundColor: '#CEE1F2'
+    backgroundColor: '#CEE1F2',
   },
 });
 

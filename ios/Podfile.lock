@@ -280,7 +280,7 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.2)
   - ReactNativePermissions (1.2.1):
     - React
-  - RNCAsyncStorage (1.6.2):
+  - RNCAsyncStorage (1.6.3):
     - React
   - RNFastImage (7.0.2):
     - React
@@ -480,7 +480,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
   ReactNativePermissions: 7cfad56d13c8961cd2a1005b4955b1400c79ef3e
-  RNCAsyncStorage: 60a80e72d95bf02a01cace55d3697d9724f0d77f
+  RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
   RNMagicMove: acc7d9dff86dd68588b01cb3515182e50b50b81c

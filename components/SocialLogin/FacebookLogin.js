@@ -1,11 +1,11 @@
 import React from 'react';
-import {AsyncStorage, ImageBackground} from 'react-native';
 import {
   LoginButton,
   AccessToken,
   GraphRequest,
   GraphRequestManager,
 } from 'react-native-fbsdk';
+import AsyncStorage from '@react-native-community/async-storage';
 import * as axios from 'axios';
 
 export default class MasonryList extends React.Component {

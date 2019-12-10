@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@bam.tech/react-native-make": "^1.0.2",
-    "@react-native-community/async-storage": "^1.6.1",
+    "@react-native-community/async-storage": "^1.6.3",
     "@react-native-community/viewpager": "^2.0.2",
     "@react-native-seoul/kakao-login": "^2.1.0",
     "accordion-collapse-react-native": "^0.1.11",

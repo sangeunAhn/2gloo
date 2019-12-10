@@ -5,10 +5,10 @@ import {
   Image,
   YellowBox,
   TouchableOpacity,
-  AsyncStorage,
 } from 'react-native';
 import * as axios from 'axios';
 import KakaoLogins from '@react-native-seoul/kakao-login';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const {width, height} = Dimensions.get('window');
 

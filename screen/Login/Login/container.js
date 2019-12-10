@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Animated} from 'react-native';
 import * as axios from 'axios';
 import Login from './presenter';
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class Container extends React.Component {
   static navigationOptions = ({navigation, screenProps}) => ({
