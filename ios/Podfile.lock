@@ -278,6 +278,8 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
     - ReactCommon/jscallinvoker (= 0.61.2)
+  - ReactNativeExceptionHandler (2.10.8):
+    - React
   - ReactNativePermissions (1.2.1):
     - React
   - RNCAsyncStorage (1.6.3):
@@ -341,6 +343,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeExceptionHandler (from `../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec`)
   - ReactNativePermissions (from `../node_modules/react-native-permissions`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
@@ -423,6 +426,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeExceptionHandler:
+    :podspec: "../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec"
   ReactNativePermissions:
     :path: "../node_modules/react-native-permissions"
   RNCAsyncStorage:
@@ -479,6 +484,7 @@ SPEC CHECKSUMS:
   React-RCTText: e3ef6191cdb627855ff7fe8fa0c1e14094967fb8
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
+  ReactNativeExceptionHandler: 8025d98049c25f186835a3af732dd7c9974d6dce
   ReactNativePermissions: 7cfad56d13c8961cd2a1005b4955b1400c79ef3e
   RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
@@ -491,6 +497,6 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 947093edd1349d820c40afbd9f42acb6cdecd987
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: eceb6e29f320b7770ddc55185b8bd280aec09dad
+PODFILE CHECKSUM: 0a5347452ee4802f0eb8dcd7c6d6e337e4675f5e
 
 COCOAPODS: 1.8.4

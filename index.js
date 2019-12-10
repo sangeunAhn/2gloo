@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import { setNativeExceptionHandler } from "react-native-exception-handler";
 /**
  * @format
  */

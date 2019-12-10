@@ -193,6 +193,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation project(':@react-native-community_viewpager')
+    compile project(':react-native-exception-handler')
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

@@ -42,7 +42,7 @@ target 'iglooApp' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
-
+  pod 'ReactNativeExceptionHandler', :podspec => '../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec'
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 

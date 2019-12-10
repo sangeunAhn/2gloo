@@ -7907,6 +7907,11 @@ react-native-elements@^1.0.0:
     react-native-ratings "^6.3.0"
     react-native-status-bar-height "^2.2.0"
 
+react-native-exception-handler@^2.10.8:
+  version "2.10.8"
+  resolved "https://registry.yarnpkg.com/react-native-exception-handler/-/react-native-exception-handler-2.10.8.tgz#1a7f846592d888d23adaf797e31802585f1d9ff0"
+  integrity sha512-ZN+jwpADRkCUNdad/50k0mZdMoICGrGdtaxgvRU+pNcWRRBAXJhuo4+jY0eQaoVpx1ghycGE6tBu9ka8gL2NOQ==
+
 react-native-fade@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-fade/-/react-native-fade-1.0.3.tgz#e27cd5a75c0d09a9ee82d854fb3851006c228d23"
