@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">2gloo</string>
+    <string name="kakao_app_key">eb61f764b189d2e534830f657fd0250d</string>
     <string name="facebook_app_id">541106616703864</string>
 </resources>
