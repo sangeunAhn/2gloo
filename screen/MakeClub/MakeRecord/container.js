@@ -156,7 +156,7 @@ class Container extends React.Component {
       })
       .then(function(response) {
         var school = response.data.message.school;
-        t.props.navigation.navigate('Main', {
+        t.props.navigation.navigate('Club', {
           schoolName: school,
           userSchool: school,
           userNo,

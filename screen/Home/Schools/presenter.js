@@ -1,16 +1,19 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions, Text, Platform} from 'react-native';
 import SchoolBtn from '../../../components/Button/SchoolBtn';
+import BackButton from '../../../components/Button/BackButton';
 
 const {width, height} = Dimensions.get('window');
 
 const Schools = props => (
   <>
     <View style={styles.container}>
+      <BackButton navigation={props.navigation} />
       <Text style={styles.title}>학교 선택</Text>
       <View style={{flexDirection: 'column', height: height * 0.83}}>
         <View style={styles.schools}>
           <SchoolBtn
+            {...props}
             school={'울산대학교'}
             backgroundColor={'white'}
             lineColor={'#e67e22'}

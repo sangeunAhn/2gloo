@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     height: 40,
     top: Platform.OS === 'ios' ? 30 : 15,
     left: width * 0.028,
-    zIndex: 1,
+    zIndex: 99,
+    // backgroundColor: 'blue'
   },
 });

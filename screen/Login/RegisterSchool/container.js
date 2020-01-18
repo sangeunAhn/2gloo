@@ -81,7 +81,7 @@ class Container extends React.Component {
         'content-type': 'multipart/form-data',
       },
     });
-    navigation.navigate('Schools', {
+    navigation.navigate('Home', {
       userId: id,
     });
   };

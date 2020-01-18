@@ -135,7 +135,7 @@ export default function App(props) {
   }
 
   const _gotoSchool = id => {
-    props.navigation.navigate('Schools', {
+    props.navigation.navigate('Home', {
       userId: id,
     });
   };

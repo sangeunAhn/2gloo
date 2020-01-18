@@ -65,7 +65,7 @@ class Container extends React.Component {
       const value = await AsyncStorage.getItem('userId');
       if (value !== null) {
         console.log('스토리지에 있는 데이터 =', value);
-        this.props.navigation.navigate('Schools', {
+        this.props.navigation.navigate('Home', {
           userId: value,
         });
       }

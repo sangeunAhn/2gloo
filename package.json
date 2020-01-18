@@ -31,6 +31,7 @@
     "react-native-check-box": "^2.1.7",
     "react-native-communications": "^2.2.1",
     "react-native-datepicker": "^1.7.2",
+    "react-native-deck-swiper": "^1.6.7",
     "react-native-elements": "^1.0.0",
     "react-native-exception-handler": "^2.10.8",
     "react-native-fast-image": "^7.0.2",

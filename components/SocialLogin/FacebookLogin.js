@@ -34,7 +34,7 @@ export default class MasonryList extends React.Component {
   };
 
   _gotoSchool = id => {
-    this.props.navigation.navigate('Schools', {
+    this.props.navigation.navigate('Home', {
       userId: id,
     });
   };

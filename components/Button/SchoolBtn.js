@@ -5,10 +5,7 @@ import {
   Text,
   StyleSheet,
   Image,
-  Dimensions,
 } from 'react-native';
-
-const {width, height} = Dimensions.get('window');
 
 export default class ConfirmButton extends Component {
   static defaultProps = {
@@ -21,10 +18,21 @@ export default class ConfirmButton extends Component {
     super(props);
   }
 
+  btnPress = () => {
+    const {navigation, school} = this.props;
+    const userNo = navigation.getParam('userNo', 'NO-ID');
+    const userSchool = navigation.getParam('userSchool', 'NO-ID');
+    navigation.navigate('Club', {
+      schoolName: school,
+      userSchool,
+      userNo,
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
+        <TouchableOpacity style={styles.button} onPress={this.btnPress}>
           <View style={styles.logo}>
             {this.props.school === '울산대학교' ? (
               <Image

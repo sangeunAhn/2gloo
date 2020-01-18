@@ -81,7 +81,7 @@ export default class ClubModify extends React.Component {
 			.post('http://13.209.221.206/php/MakeClub/DeleteClub.php', {
 				userNo,
 			})
-			.then(this.props.navigation.navigate('Main', {
+			.then(this.props.navigation.navigate('Club', {
         from: 'updateClub'
       }));
 	};

@@ -399,7 +399,7 @@ class Container extends Component {
 
 			
 			if (this.props.navigation.getParam('from', 'NO-ID') === 'm') {
-				this.props.navigation.navigate('Main', {
+				this.props.navigation.navigate('Club', {
 					from: 'updateClub',
 				});
 			} else {
