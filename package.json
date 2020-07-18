@@ -19,7 +19,7 @@
     "babel-preset-react-native": "^4.0.1",
     "generator-rn-toolbox": "^3.14.0",
     "global": "^4.4.0",
-    "lodash": "^4.12.0",
+    "lodash": "^4.17.19",
     "native-base": "^2.13.8",
     "package": "^1.0.1",
     "paths-js": "^0.4.5",
